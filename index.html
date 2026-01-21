@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project 67 - Coming Soon</title>
 
+  <!-- FAVICON (67 logo in browser tab) -->
+  <link rel="icon" type="image/png" href="./67ball.png">
+
   <style>
     /* ---------- GLOBAL ---------- */
     body {
@@ -97,6 +100,28 @@
       text-decoration: none;
     }
 
+    /* NEW: Header manifesto teaser */
+    .manifesto-teaser{
+      margin-top: 18px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+      text-align: center;
+    }
+    .manifesto-teaser strong{
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .manifesto-teaser a{
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(139,211,255,0.35);
+    }
+    .manifesto-teaser a:hover{
+      border-bottom: 1px solid rgba(139,211,255,0.8);
+    }
+
     /* ---------- LYRICS BOX ---------- */
     pre {
       background: #111;
@@ -176,6 +201,15 @@
       border-top: 1px solid rgba(255,255,255,0.12);
       background: #000;
     }
+
+    /* NEW: Footer stamp */
+    .footer-stamp{
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
   </style>
 </head>
 
@@ -191,6 +225,13 @@
   <div class="header-buttons">
     <a class="btn-manifesto" href="./manifesto.html">Manifesto</a>
   </div>
+
+  <!-- NEW: MANIFESTO TEASER -->
+  <p class="manifesto-teaser">
+    <strong>Be the signal.</strong> Project 67 is a message of understanding in a noisy world —
+    love as advanced intelligence, verification as care.
+    <a href="./manifesto.html">Read the Manifesto →</a>
+  </p>
 </header>
 
 <section id="brief">
@@ -326,6 +367,7 @@ six six seven
 </section>
 
 <footer>
+  <div class="footer-stamp">Be the signal // 67</div>
   &copy; 2026 Project 67. All rights reserved.
 </footer>
 
