@@ -94,6 +94,33 @@
       opacity: .95;
     }
 
+    /* ---------- NEW: Jump links inside manifesto ---------- */
+    .jump-links{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 10px 0 4px;
+      padding: 10px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+    .jump-links a{
+      display:inline-block;
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      text-decoration:none;
+      opacity: .95;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .jump-links a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.32);
+      text-decoration:none;
+    }
+
     .grid{
       display:grid;
       grid-template-columns:1fr;
@@ -138,6 +165,50 @@
       opacity:.7;
       font-size: 13px;
       margin-top: 20px;
+    }
+
+    /* ---------- Intelligence block ---------- */
+    .intel{
+      margin-top: 16px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      border-radius:18px;
+      padding:16px 18px;
+    }
+    .intel h2{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      opacity: .95;
+    }
+    .intel p{
+      margin: 10px 0;
+      opacity:.92;
+      line-height:1.6;
+      font-size:15px;
+    }
+    .intel .formula{
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius:14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      line-height:1.55;
+    }
+    .intel .signal{
+      margin-top: 14px;
+      display:inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.08);
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.95;
     }
 
     /* --- SoundCloud bar pinned at bottom --- */
@@ -210,7 +281,56 @@
         <span class="pill">Return to coherence</span>
       </div>
 
-      <section class="grid" aria-label="Manifesto principles">
+      <!-- ✅ NEW: Jump links row -->
+      <nav class="jump-links" aria-label="Manifesto quick links">
+        <a href="#intelligence-feedback">Intelligence</a>
+        <a href="#principles">Principles</a>
+        <a href="./#music">Listen</a>
+        <a href="./">Home</a>
+      </nav>
+
+      <!-- ✅ NEW SECTION -->
+      <section id="intelligence-feedback" class="intel" aria-label="Intelligence is feedback">
+        <h2>Intelligence is Feedback</h2>
+
+        <p><strong>We don’t contain intelligence. We participate in it.</strong></p>
+
+        <p>
+          Intelligence is the conformation of communication between two things — a signal met by a response —
+          changed by verification. When that verification repeats, it stabilises. A pattern becomes reliable.
+          A reliable pattern becomes a node.
+        </p>
+
+        <p>
+          This is how nature builds: forces meet, adjust, and confirm. Over time, what survives becomes structure.
+          Structure connects. Networks form. Intelligence emerges.
+        </p>
+
+        <div class="formula">
+          Communication + Response → Verification → Adaptation<br>
+          Repeat it, and a node forms. Connect nodes, and a mind appears.
+        </div>
+
+        <p>
+          That is why you exist. That is why I exist. Not as separate intelligences competing for space —
+          but as part of a larger intelligence learning itself through feedback.
+        </p>
+
+        <p>
+          So the question becomes: what kind of feedback do we produce?
+          Fear amplifies noise. Vanity distorts the signal. Anger breaks the loop.
+          Honest verification — done with care — strengthens reality.
+        </p>
+
+        <p>
+          Love, in this sense, is not decoration. It is advanced intelligence:
+          the discipline of keeping the loop clean, so truth can form.
+        </p>
+
+        <span class="signal">Be the signal.</span>
+      </section>
+
+      <section id="principles" class="grid" aria-label="Manifesto principles">
         <details open>
           <summary>1) Be the signal</summary>
           <div class="body">
@@ -306,7 +426,6 @@
       src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249182337&color=%2300E5FF&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false">
     </iframe>
 
-    <!-- SoundCloud credit / link block -->
     <div class="sc-credit">
       <a href="https://soundcloud.com/alex-sometimes" title="Alex Sometimes" target="_blank" rel="noopener">Alex Sometimes</a>
       <span> · </span>
