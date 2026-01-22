@@ -7,7 +7,7 @@
   <meta name="description" content="Project 67 Manifesto — Love as a signal. Verification as care. We become what we communicate." />
 
   <style>
-    :root{ color-scheme: dark; }
+    :root{ color-scheme: dark; scroll-behavior:smooth; }
 
     body{
       margin:0;
@@ -94,7 +94,7 @@
       opacity: .95;
     }
 
-    /* ---------- NEW: Jump links inside manifesto ---------- */
+    /* ---------- Jump links inside manifesto ---------- */
     .jump-links{
       display:flex;
       gap:10px;
@@ -119,6 +119,62 @@
       background: rgba(255,255,255,0.10);
       border-color: rgba(255,255,255,0.32);
       text-decoration:none;
+    }
+
+    /* ---------- Visual gallery ---------- */
+    .visuals{
+      margin-top: 16px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      border-radius:18px;
+      padding:16px 18px;
+    }
+
+    .visuals-title{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      opacity: .95;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    @media(min-width: 860px){
+      .gallery{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .shot{
+      margin:0;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .shot:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.55);
+    }
+
+    .shot img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+
+    .visuals-caption{
+      margin: 12px 0 0;
+      opacity:.88;
+      line-height:1.6;
+      font-size:15px;
     }
 
     .grid{
@@ -211,6 +267,30 @@
       opacity: 0.95;
     }
 
+    /* ---------- Back to Top button ---------- */
+    .toTop{
+      position: fixed;
+      right: 14px;
+      bottom: 130px;
+      z-index: 9998;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.55);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      font-size: 13px;
+      display: none;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .toTop:hover{
+      background: rgba(0,0,0,0.75);
+      border-color: rgba(255,255,255,0.35);
+    }
+
     /* --- SoundCloud bar pinned at bottom --- */
     .audio-bar{
       position: fixed;
@@ -258,6 +338,9 @@
 </head>
 
 <body>
+  <a id="top"></a>
+  <a class="toTop" href="#top" aria-label="Back to top">↑ Top</a>
+
   <div class="wrap">
     <div class="topbar">
       <a class="btn" href="./">← Back</a>
@@ -281,15 +364,39 @@
         <span class="pill">Return to coherence</span>
       </div>
 
-      <!-- ✅ NEW: Jump links row -->
+      <!-- Jump links row (updated) -->
       <nav class="jump-links" aria-label="Manifesto quick links">
         <a href="#intelligence-feedback">Intelligence</a>
+        <a href="#visuals">Visuals</a>
         <a href="#principles">Principles</a>
         <a href="./#music">Listen</a>
         <a href="./">Home</a>
       </nav>
 
-      <!-- ✅ NEW SECTION -->
+      <!-- Visual Gallery -->
+      <section id="visuals" class="visuals" aria-label="Project visuals">
+        <h2 class="visuals-title">Visuals</h2>
+
+        <div class="gallery">
+          <figure class="shot">
+            <img src="./poster1.png" alt="Project 67 promotional visual 1">
+          </figure>
+
+          <figure class="shot">
+            <img src="./poster2.png" alt="Project 67 promotional visual 2">
+          </figure>
+
+          <figure class="shot">
+            <img src="./poster3.png" alt="Project 67 promotional visual 3">
+          </figure>
+        </div>
+
+        <p class="visuals-caption">
+          Early visuals for Project 67 — identity integration, participation, and the mood of the signal.
+        </p>
+      </section>
+
+      <!-- Intelligence Section -->
       <section id="intelligence-feedback" class="intel" aria-label="Intelligence is feedback">
         <h2>Intelligence is Feedback</h2>
 
@@ -330,6 +437,7 @@
         <span class="signal">Be the signal.</span>
       </section>
 
+      <!-- Principles -->
       <section id="principles" class="grid" aria-label="Manifesto principles">
         <details open>
           <summary>1) Be the signal</summary>
@@ -432,5 +540,16 @@
       <a href="https://soundcloud.com/alex-sometimes/67-randbs1-1" title="67 randbs1" target="_blank" rel="noopener">67 randbs1</a>
     </div>
   </div>
+
+  <script>
+    // Show / hide "Back to top" button
+    const btn = document.querySelector('.toTop');
+    const toggleTop = () => {
+      if (window.scrollY > 500) btn.style.display = 'inline-block';
+      else btn.style.display = 'none';
+    };
+    window.addEventListener('scroll', toggleTop);
+    toggleTop();
+  </script>
 </body>
 </html>
