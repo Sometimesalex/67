@@ -48,7 +48,7 @@
       text-align: center;
       background: #000;
       color: #fff;
-      padding: 80px 20px;
+      padding: 80px 20px 40px;
       border-bottom: 1px solid rgba(255,255,255,0.12);
     }
 
@@ -120,6 +120,47 @@
     }
     .manifesto-teaser a:hover{
       border-bottom: 1px solid rgba(139,211,255,0.8);
+    }
+
+    /* ---------- JUMP LINKS NAV ---------- */
+    .jumpnav-wrap{
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(6px);
+    }
+
+    .jumpnav{
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .jumpnav a{
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.95);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 0.95em;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration: none;
+    }
+
+    .jumpnav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.30);
+      text-decoration: none;
     }
 
     /* ---------- LYRICS BOX ---------- */
@@ -235,9 +276,7 @@
 <body>
 
 <header>
-  <!-- LOGO -->
   <img src="./67ball.png" alt="Project 67 Logo" class="logo67">
-
   <h1>Project 67</h1>
   <p>An interactive music and video experience exploring adaptability, user participation, and identity integration. Coming soon.</p>
 
@@ -251,6 +290,18 @@
     <a href="./manifesto.html">Read the Manifesto →</a>
   </p>
 </header>
+
+<!-- NEW: Jump Links Navigation -->
+<div class="jumpnav-wrap">
+  <nav class="jumpnav">
+    <a href="#brief">Brief</a>
+    <a href="#videos">Videos</a>
+    <a href="#lyrics">Lyrics</a>
+    <a href="#audio">Audio</a>
+    <a href="./manifesto.html">Manifesto</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
 
 <section id="brief">
   <h2>Project Brief</h2>
@@ -266,6 +317,36 @@
   <p>
     This site serves as the central hub for the project while the full interactive platform is under development. It presents existing audio, planned visual interactivity, and an overview of future capabilities.
   </p>
+</section>
+
+<section id="videos">
+  <h2>Interactive Video Demonstrations</h2>
+
+  <div class="media-grid">
+    <div class="media-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/s9Brt-osm6Y?si=jxTNI-jv9awP1oU4"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <p>Prototype video — early demonstration</p>
+    </div>
+
+    <div class="media-card">
+      <div class="video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/_IYqtFccI-Y?si=h82eKwmAXT4LKdvj"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+      </div>
+      <p>Prototype video — additional demonstration</p>
+    </div>
+  </div>
 </section>
 
 <section id="lyrics">
@@ -348,24 +429,6 @@ six six seven
     <div class="media-card">
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249173277&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-    </div>
-  </div>
-</section>
-
-<section id="videos">
-  <h2>Interactive Video Demonstrations</h2>
-
-  <div class="media-grid">
-    <div class="media-card">
-      <div class="video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/s9Brt-osm6Y?si=jxTNI-jv9awP1oU4"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen></iframe>
-      </div>
-      <p>Prototype video — early demonstration</p>
     </div>
   </div>
 </section>
