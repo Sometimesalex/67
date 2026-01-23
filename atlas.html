@@ -13,9 +13,10 @@
 
     body{
       margin:0;
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(140,60,220,.18), transparent 60%),
-                  radial-gradient(900px 600px at 85% 30%, rgba(60,190,255,.12), transparent 55%),
-                  #07060a;
+      background:
+        radial-gradient(1200px 800px at 20% 10%, rgba(140,60,220,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 30%, rgba(60,190,255,.12), transparent 55%),
+        #07060a;
       color:#fff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
@@ -129,7 +130,7 @@
       margin-bottom: 8px;
     }
 
-    select, input{
+    select{
       width:100%;
       padding: 12px 12px;
       border-radius: 14px;
@@ -203,12 +204,6 @@
     }
     .submitbox strong{ letter-spacing:.04em; }
 
-    footer{
-      opacity:.7;
-      font-size: 13px;
-      margin-top: 18px;
-    }
-
     .status{
       font-size:12px;
       opacity:.85;
@@ -217,6 +212,12 @@
       border:1px solid rgba(255,255,255,0.16);
       background: rgba(0,0,0,0.25);
       display:inline-block;
+    }
+
+    footer{
+      opacity:.7;
+      font-size: 13px;
+      margin-top: 18px;
     }
   </style>
 </head>
@@ -337,7 +338,7 @@
         `Metadata:`,
         `Layer: 6 (Locked base catalogue entry)`,
         `Type: Token 1 (generation-space reference key)`,
-      ].join("\n");
+      ].join("\\n");
     };
 
     document.getElementById('genBtn').addEventListener('click', (e) => {
