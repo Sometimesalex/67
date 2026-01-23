@@ -267,6 +267,48 @@
       opacity: 0.95;
     }
 
+    /* ---------- NEW: Atlas featured appendix block ---------- */
+    .atlas-appendix{
+      margin-top: 26px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(180deg, rgba(0,0,0,0.30), rgba(0,0,0,0.55));
+      border-radius: 22px;
+      padding: 18px 18px;
+      box-shadow: 0 14px 50px rgba(0,0,0,0.45);
+    }
+    .atlas-appendix h2{
+      margin: 4px 0 10px;
+      font-size: 18px;
+      letter-spacing:.08em;
+      text-transform: uppercase;
+      opacity: .95;
+    }
+    .atlas-appendix p{
+      margin: 10px 0;
+      opacity:.92;
+      line-height:1.6;
+      font-size:15px;
+    }
+    .atlas-appendix .atlas-visual{
+      margin-top: 14px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+    .atlas-appendix .atlas-visual img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
+    .atlas-appendix .atlas-note{
+      margin-top: 12px;
+      opacity:.80;
+      font-size: 13px;
+      line-height:1.6;
+    }
+
     /* ---------- Back to Top button ---------- */
     .toTop{
       position: fixed;
@@ -368,7 +410,7 @@
       <nav class="jump-links" aria-label="Manifesto quick links">
         <a href="#intelligence-feedback">Intelligence</a>
         <a href="#visuals">Visuals</a>
-        <a href="#atlas-scale">67 Atlas</a>
+        <a href="#atlas-appendix">67 Atlas</a>
         <a href="#principles">Principles</a>
         <a href="./#music">Listen</a>
         <a href="./">Home</a>
@@ -441,41 +483,6 @@
         </p>
 
         <span class="signal">Be the signal.</span>
-      </section>
-
-      <!-- NEW: The 67 Atlas Scale & Token 1 -->
-      <section id="atlas-scale" class="intel" aria-label="The 67 Atlas scale and Token 1">
-        <h2>The 67 Atlas: Scale</h2>
-
-        <p>
-          The 67 Atlas begins with a base map: <strong>language × genre</strong>.
-          It’s the first stable layer — a structured catalogue of cultural combinations that can be generated, referenced, and built upon.
-        </p>
-
-        <p>
-          Based on the currently detectable set of languages and genres, we estimate
-          <strong>approximately 14,000,000 Token 1 variations</strong>.
-          This figure represents <strong>Layer 6</strong>: the basic generation stage.
-          It includes every known pairing of language and genre that can be detected at the time of building the Atlas.
-        </p>
-
-        <p>
-          Culture is not fixed. As new languages, dialects, styles, and subgenres are identified, the total number of base variations may change.
-          The estimate is a snapshot of the Atlas at a moment in time — and the Atlas is designed to grow.
-        </p>
-
-        <p>
-          Token 1 exists to generate and lock the base catalogue before the system advances into discovery.
-          <strong>Layer 6 builds the basic token.</strong>
-          Later layers expand beyond the base map into continuous discovery and new outcomes.
-        </p>
-
-        <div class="formula">
-          Token 1 ≈ 14,000,000 base variations (current estimate)<br>
-          Defined by: (Detectable Languages) × (Detectable Genres)
-        </div>
-
-        <span class="signal">The Atlas begins with the base map.</span>
       </section>
 
       <!-- Principles -->
@@ -556,6 +563,45 @@
         <a class="btn" href="./#contact">Get involved</a>
         <a class="btn" href="./#music">Listen</a>
       </div>
+
+      <!-- NEW: Atlas appendix at bottom -->
+      <section id="atlas-appendix" class="atlas-appendix" aria-label="The 67 Atlas appendix">
+        <h2>The 67 Atlas (Appendix)</h2>
+
+        <p>
+          The 67 Atlas begins with a base map: <strong>language × genre</strong>.
+          This is the first stable layer — a catalogue of cultural combinations that can be generated, referenced, and built upon.
+        </p>
+
+        <p>
+          Based on the currently detectable set of languages and genres, we estimate
+          <strong>approximately 14,000,000 Token 1 base variations</strong>.
+          This figure represents <strong>Layer 6</strong>: the basic generation stage.
+          It includes every known pairing of language and genre detectable at the time of building the Atlas.
+        </p>
+
+        <p>
+          <strong>Why this matters:</strong>
+          the Atlas is not speculation — it’s cultural mapping.
+          The base catalogue creates a shared reference point: a stable foundation we can lock, cite, and extend.
+          Once the base map exists, the system can advance into discovery: new subgenres, hybrids, instrumentation variations, and new outcomes.
+        </p>
+
+        <div class="intel formula" style="margin-top: 12px;">
+          Token 1 ≈ 14,000,000 base variations (current estimate)<br>
+          Defined by: (Detectable Languages) × (Detectable Genres)
+        </div>
+
+        <div class="atlas-visual" aria-label="The 67 Atlas Stack Diagram">
+          <img src="./Atlas1.png" alt="The 67 Atlas Stack diagram">
+        </div>
+
+        <p class="atlas-note">
+          Note: culture is living. As new languages, dialects, styles and subgenres are identified, the total number of base variations may change over time.
+        </p>
+
+        <span class="signal">Be the signal.</span>
+      </section>
 
       <footer>
         Project 67 • “Be the signal.”
