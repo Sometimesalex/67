@@ -10,6 +10,7 @@
 
   <style>
     :root{ color-scheme: dark; scroll-behavior:smooth; }
+
     body{
       margin:0;
       background: radial-gradient(1200px 800px at 20% 10%, rgba(140,60,220,.18), transparent 60%),
@@ -18,19 +19,24 @@
       color:#fff;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     }
+
     a{ color:#fff; }
+
     .wrap{
       max-width: 980px;
       margin: 0 auto;
-      padding: 28px 18px 90px;
+      padding: 28px 18px 80px;
     }
+
     .topbar{
       display:flex;
       gap:12px;
       align-items:center;
       justify-content:space-between;
       padding: 10px 0 18px;
+      flex-wrap:wrap;
     }
+
     .btn{
       display:inline-block;
       padding:10px 14px;
@@ -39,8 +45,8 @@
       text-decoration:none;
       background: rgba(0,0,0,0.25);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      font-weight:800;
-      letter-spacing:.02em;
+      font-weight: 800;
+      letter-spacing: .02em;
     }
     .btn:hover{
       transform: translateY(-1px);
@@ -52,7 +58,7 @@
       border: 1px solid rgba(255,255,255,0.14);
       background: rgba(0,0,0,0.35);
       border-radius: 24px;
-      padding: 26px 22px;
+      padding: 28px 22px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.35);
     }
 
@@ -61,6 +67,303 @@
       letter-spacing:.22em;
       text-transform:uppercase;
       font-size:12px;
+      margin:0 0 10px;
+    }
+
+    h1{
+      font-size: 40px;
+      line-height:1.08;
+      margin:0 0 10px;
+    }
+
+    .sub{
+      font-size:16px;
+      line-height:1.6;
+      opacity:.92;
+      margin:0 0 18px;
+      max-width: 880px;
+    }
+
+    .pillrow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin: 16px 0 10px;
+    }
+    .pill{
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.06);
+      opacity: .95;
+      font-weight: 800;
+      letter-spacing:.02em;
+    }
+
+    .atlas-box{
+      margin-top: 18px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.55));
+      border-radius: 22px;
+      padding: 18px 18px;
+      box-shadow: 0 14px 50px rgba(0,0,0,0.45);
+    }
+
+    .row{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    @media(min-width:860px){
+      .row{ grid-template-columns: 1fr 1fr; }
+    }
+
+    label{
+      font-size:13px;
+      opacity:.90;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      display:block;
+      margin-bottom: 8px;
+    }
+
+    select, input{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(0,0,0,0.35);
+      color:#fff;
+      font-size:15px;
+      outline:none;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+      align-items:center;
+    }
+
+    .btn-primary{
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+    }
+
+    .output{
+      margin-top: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      padding: 14px 14px;
+      overflow-wrap:anywhere;
+    }
+
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      opacity: .96;
+      white-space: pre-wrap;
+      margin: 0;
+    }
+
+    .hint{
+      font-size: 13px;
+      opacity: .82;
+      margin-top: 10px;
+      line-height:1.55;
+    }
+
+    .imgwrap{
+      margin-top:16px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.03);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+    }
+    .imgwrap img{ display:block; width:100%; height:auto; }
+
+    .divider{
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.10);
+      padding-top: 16px;
+    }
+
+    .submitbox{
+      margin-top: 16px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(0,0,0,0.22);
+      border-radius:18px;
+      padding:14px 16px;
+    }
+    .submitbox strong{ letter-spacing:.04em; }
+
+    footer{
+      opacity:.7;
+      font-size: 13px;
+      margin-top: 18px;
+    }
+
+    .status{
+      font-size:12px;
+      opacity:.85;
+      padding: 6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.16);
+      background: rgba(0,0,0,0.25);
+      display:inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="btn" href="./">← Back</a>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="./manifesto.html#atlas-appendix">What is the Atlas?</a>
+        <a class="btn" href="./#audio">Listen</a>
+      </div>
+    </div>
+
+    <main class="card">
+      <p class="kicker">Project 67</p>
+      <h1>The 67 Atlas</h1>
+
+      <p class="sub">
+        The 67 Atlas is a participatory cultural map of <strong>language × genre</strong>.
+        This tool generates a <strong>Token 1 prompt</strong> — a base catalogue key that describes the generation space.
+        <strong>Token 1 is not a claim that every output is pre-rendered.</strong>
+        It defines the map so the system can be extended through discovery and participation.
+      </p>
+
+      <div class="pillrow">
+        <span class="pill">Layer 6 = Locked base map</span>
+        <span class="pill">Token 1 = Catalogue key</span>
+        <span class="pill">~14,000,000 combinations (estimate)</span>
+      </div>
+
+      <section class="atlas-box" aria-label="Token 1 generator">
+        <div class="row">
+          <div>
+            <label for="lang">Language</label>
+            <select id="lang">
+              <option value="English">English</option>
+              <option value="Serbian">Serbian</option>
+              <option value="Arabic">Arabic</option>
+              <option value="Español">Español</option>
+              <option value="Français">Français</option>
+              <option value="Nederlands">Nederlands</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="genre">Genre / Style</label>
+            <select id="genre">
+              <option value="Pop">Pop</option>
+              <option value="R&B / Soul">R&B / Soul</option>
+              <option value="Serbian Folk (Modern)">Serbian Folk (Modern)</option>
+              <option value="Arabic Modern">Arabic Modern</option>
+              <option value="Flamenco (Andalusia)">Flamenco (Andalusia)</option>
+              <option value="French Traditional">French Traditional</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a href="#" class="btn btn-primary" id="genBtn">Generate Token 1 Prompt</a>
+          <a href="#" class="btn" id="copyBtn">Copy Prompt</a>
+          <span class="status" id="status">Ready</span>
+        </div>
+
+        <div class="output" aria-label="Generated output">
+          <pre class="mono" id="out">Choose Language + Genre, then press “Generate Token 1 Prompt”.</pre>
+        </div>
+
+        <p class="hint">
+          Tip: use this prompt in your preferred music model (or workflow). The Atlas prompt style is designed to preserve cultural authenticity and reduce duplication.
+        </p>
+
+        <div class="imgwrap" aria-label="Atlas diagram">
+          <img src="./Atlas1.png" alt="The 67 Atlas Stack diagram">
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="submitbox">
+          <p class="hint" style="margin:0;">
+            <strong>Public input is already being collected.</strong> Next phase: a submission form for languages, dialects, genres, subgenres, instruments and vocal types —
+            verified by AI to prevent duplication.
+          </p>
+        </div>
+      </section>
+
+      <footer>
+        Project 67 • The 67 Atlas • “Be the signal.”
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    const langEl = document.getElementById('lang');
+    const genreEl = document.getElementById('genre');
+    const outEl  = document.getElementById('out');
+    const statusEl = document.getElementById('status');
+
+    const slug = (s) => String(s)
+      .toLowerCase()
+      .replace(/&/g,'and')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/(^-|-$)/g,'');
+
+    const makeTokenId = (lang, genre) => {
+      return `T1-LANG:${slug(lang).toUpperCase()}-GENRE:${slug(genre).toUpperCase()}-V1`;
+    };
+
+    const makePrompt = (lang, genre) => {
+      return [
+        `Token ID: ${makeTokenId(lang, genre)}`,
+        ``,
+        `Prompt:`,
+        `Create an original music track in the style of "${genre}" performed in "${lang}".`,
+        `Preserve cultural authenticity, instrumentation choices, rhythmic feel, and vocal delivery typical of the style.`,
+        `Aim for emotional coherence and clarity. Avoid parody.`,
+        ``,
+        `Metadata:`,
+        `Layer: 6 (Locked base catalogue entry)`,
+        `Type: Token 1 (generation-space reference key)`,
+      ].join("\n");
+    };
+
+    document.getElementById('genBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const lang = langEl.value;
+      const genre = genreEl.value;
+      outEl.textContent = makePrompt(lang, genre);
+      statusEl.textContent = "Generated ✅";
+    });
+
+    document.getElementById('copyBtn').addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = outEl.textContent.trim();
+      if (!text || text.includes("Choose Language")) return;
+
+      try{
+        await navigator.clipboard.writeText(text);
+        statusEl.textContent = "Copied ✅";
+        setTimeout(()=> statusEl.textContent = "Ready", 1400);
+      }catch(err){
+        alert("Copy failed. You can manually select and copy the text.");
+      }
+    });
+  </script>
+</body>
+</html>
       margin:0 0 10px;
     }
 
