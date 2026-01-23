@@ -35,6 +35,12 @@
       color: #fff;
     }
 
+    h3{
+      font-size: 1.2em;
+      text-align: center;
+      margin: 0 0 12px 0;
+    }
+
     p, pre {
       font-size: 1.1em;
       max-width: 800px;
@@ -62,6 +68,7 @@
       max-width: 700px;
       margin: 0 auto;
       opacity: 0.9;
+      text-align:center;
     }
 
     .logo67{
@@ -253,6 +260,72 @@
       100% { box-shadow: 0 0 10px rgba(255,255,255,0.03); }
     }
 
+    /* ---------- MULTILINGUAL AUDIO PLAYER ---------- */
+    .lang-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin: 12px 0;
+    }
+    .lang-buttons button{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:700;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .lang-buttons button:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .track-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin: 10px 0 14px 0;
+    }
+    .track-buttons button{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
+      color:#fff;
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+      opacity:0.92;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
+    }
+    .track-buttons button:hover{
+      opacity:1;
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.30);
+    }
+    .player-wrap{
+      width:100%;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+      background:#111;
+      max-width: 800px;
+      margin: 0 auto 10px;
+    }
+    .player-note{
+      text-align:center;
+      opacity:.8;
+      margin: 0 auto 30px;
+      max-width: 800px;
+    }
+
     /* ---------- FOOTER ---------- */
     footer {
       text-align: center;
@@ -291,7 +364,7 @@
   </p>
 </header>
 
-<!-- NEW: Jump Links Navigation -->
+<!-- Jump Links Navigation -->
 <div class="jumpnav-wrap">
   <nav class="jumpnav">
     <a href="#brief">Brief</a>
@@ -385,7 +458,7 @@ Sixty seven, oh sixty seven, six seven times
 
 [Chorus]
 Ooooooo sixty seven yeah
-six seven six six seven 
+six seven six six seven
 When i say it i feel alive again
 Ooooooo sixty seven do it again
 
@@ -405,6 +478,102 @@ six six seven
 
 <section id="audio">
   <h2>Audio Demonstrations</h2>
+
+  <h3>Multilingual Tracks</h3>
+  <p class="player-note">Press play to listen.</p>
+
+  <div class="lang-buttons" id="langButtons"></div>
+  <div class="track-buttons" id="trackButtons" style="display:none;"></div>
+
+  <div class="player-wrap">
+    <iframe
+      id="mixcloudPlayer"
+      width="100%"
+      height="60"
+      frameborder="0"
+      allow="encrypted-media; fullscreen; autoplay; web-share;"
+      src=""
+    ></iframe>
+  </div>
+
+  <script>
+    const tracks = {
+      "Arabic": {
+        label: "🇸🇦 Arabic",
+        versions: [
+          { name: "Modern 1", feed: "/Alsomeday/67-arabic-modern/" },
+          { name: "Modern 2", feed: "/Alsomeday/67-arabic-modern-2/" }
+        ]
+      },
+      "Español": {
+        label: "🇪🇸 Español",
+        versions: [
+          { name: "Flamenco 1", feed: "/Alsomeday/67-espanol-flamenco-andalusia-1/" },
+          { name: "Flamenco 2", feed: "/Alsomeday/67-espanol-flamenco-andalusia-2/" }
+        ]
+      },
+      "Français": {
+        label: "🇫🇷 Français",
+        versions: [
+          { name: "Traditional 1", feed: "/Alsomeday/67-francais-traditional-1/" },
+          { name: "Traditional 2", feed: "/Alsomeday/67-francais-traditional-2/" }
+        ]
+      },
+      "Nederlands": {
+        label: "🇳🇱 Nederlands",
+        versions: [
+          { name: "Version 1", feed: "/Alsomeday/67-nederlands-1/" }
+        ]
+      },
+      "Serbian": {
+        label: "🇷🇸 Serbian",
+        versions: [
+          { name: "Modern 1", feed: "/Alsomeday/67-serbian-folk-modern-1/" },
+          { name: "Modern 2", feed: "/Alsomeday/67-serbian-folk-modern-2/" }
+        ]
+      }
+    };
+
+    const langButtons = document.getElementById("langButtons");
+    const trackButtons = document.getElementById("trackButtons");
+    const player = document.getElementById("mixcloudPlayer");
+
+    function mixcloudSrc(feed){
+      const encoded = encodeURIComponent(feed);
+      return `https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=${encoded}`;
+    }
+
+    function loadFeed(feed){
+      player.src = mixcloudSrc(feed);
+    }
+
+    function showTracks(langKey){
+      const lang = tracks[langKey];
+      trackButtons.innerHTML = "";
+      trackButtons.style.display = "flex";
+
+      lang.versions.forEach(v => {
+        const b = document.createElement("button");
+        b.textContent = v.name;
+        b.onclick = () => loadFeed(v.feed);
+        trackButtons.appendChild(b);
+      });
+
+      loadFeed(lang.versions[0].feed);
+    }
+
+    Object.keys(tracks).forEach(langKey => {
+      const b = document.createElement("button");
+      b.textContent = tracks[langKey].label;
+      b.onclick = () => showTracks(langKey);
+      langButtons.appendChild(b);
+    });
+
+    // Default track on page load:
+    showTracks("Arabic");
+  </script>
+
+  <!-- Existing SoundCloud grid kept intact -->
   <div class="media-grid">
     <div class="media-card">
       <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
