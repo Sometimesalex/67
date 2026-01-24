@@ -56,6 +56,31 @@
       color: #fff;
       padding: 80px 20px 40px;
       border-bottom: 1px solid rgba(255,255,255,0.12);
+
+      /* ✅ ADDED: background image */
+      position: relative;
+      background-image: url("./tati-descartes-derrida.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* ✅ ADDED: dark overlay for readability */
+    header::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: linear-gradient(
+        rgba(0,0,0,0.72),
+        rgba(0,0,0,0.72)
+      );
+      z-index: 0;
+    }
+
+    /* ✅ ADDED: keep header content above overlay */
+    header > *{
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
