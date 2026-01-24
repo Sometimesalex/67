@@ -3,161 +3,345 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project 67</title>
+  <title>Project 67 - Coming Soon</title>
 
+  <!-- FAVICON (67 logo in browser tab) -->
   <link rel="icon" type="image/png" href="./67ball.png">
 
   <style>
-    body{
+    /* ---------- GLOBAL ---------- */
+    body {
       font-family: Arial, sans-serif;
-      background:#000;
-      color:#fff;
-      margin:0;
-      line-height:1.6;
+      background: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
     }
 
-    a{color:#8bd3ff;text-decoration:none}
-    a:hover{text-decoration:underline}
+    a { color: #8bd3ff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-    section{
-      max-width:1000px;
-      margin:auto;
-      padding:60px 20px;
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
-    h2{
-      font-size:2em;
-      margin-bottom:40px;
+    h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #fff;
+    }
+
+    h3{
+      font-size: 1.2em;
+      text-align: center;
+      margin: 0 0 12px 0;
+    }
+
+    p, pre {
+      font-size: 1.1em;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      text-align: left;
+      color: #fff;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      text-align: center;
+      background: #000;
+      color: #fff;
+      padding: 80px 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2em;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
       text-align:center;
-    }
-
-    h3{text-align:center;margin-bottom:12px}
-
-    p,pre{
-      font-size:1.1em;
-      max-width:800px;
-      margin:0 auto 20px;
-    }
-
-    header{
-      text-align:center;
-      padding:80px 20px 40px;
-      border-bottom:1px solid rgba(255,255,255,.12);
     }
 
     .logo67{
-      width:140px;
-      margin:0 auto 18px;
-      display:block;
+      width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.6));
     }
 
+    /* ---------- MANIFESTO BUTTON ---------- */
     .header-buttons{
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-top:22px;
+      margin-top: 22px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .btn-manifesto{
+      display:inline-block;
       padding:12px 18px;
       border-radius:14px;
-      border:1px solid rgba(255,255,255,.28);
-      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,0.28);
+      text-decoration:none;
       color:#fff;
-      font-weight:700;
+      background: rgba(255,255,255,0.08);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      font-weight: 700;
     }
 
+    .btn-manifesto:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.14);
+      border-color: rgba(255,255,255,0.45);
+      text-decoration: none;
+    }
+
+    /* Header manifesto teaser */
+    .manifesto-teaser{
+      margin-top: 18px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      opacity: 0.95;
+      text-align: center;
+    }
+    .manifesto-teaser strong{
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .manifesto-teaser a{
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(139,211,255,0.35);
+    }
+    .manifesto-teaser a:hover{
+      border-bottom: 1px solid rgba(139,211,255,0.8);
+    }
+
+    /* ---------- JUMP LINKS NAV ---------- */
     .jumpnav-wrap{
-      position:sticky;
-      top:0;
-      background:#000;
-      border-bottom:1px solid rgba(255,255,255,.12);
-      z-index:100;
+      background: #000;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(6px);
     }
 
     .jumpnav{
-      display:flex;
-      gap:10px;
-      justify-content:center;
-      padding:10px;
-      flex-wrap:wrap;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px 14px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .jumpnav a{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.16);
-      background:rgba(255,255,255,.06);
-      font-weight:700;
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.95);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      font-size: 0.95em;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration: none;
     }
 
-    pre{
-      background:#111;
-      padding:20px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      overflow-x:auto;
+    .jumpnav a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.30);
+      text-decoration: none;
     }
 
-    .media-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-      margin-top:40px;
+    /* ---------- LYRICS BOX ---------- */
+    pre {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
     }
 
-    .media-card{
-      background:#111;
-      padding:20px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.12);
-      text-align:center;
+    /* ---------- MEDIA GRID ---------- */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
     }
 
+    .media-card {
+      background: #111;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-align: center;
+      color: #fff;
+    }
+
+    .media-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.7);
+      animation: pulse-hover 1.5s infinite alternate;
+    }
+
+    @keyframes pulse-hover {
+      0% { transform: translateY(-5px) scale(1.02); }
+      100% { transform: translateY(-7px) scale(1.03); }
+    }
+
+    /* ---------- VIDEO EMBED RESPONSIVE ---------- */
     .video-wrap{
-      position:relative;
-      padding-bottom:56.25%;
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
     }
-
     .video-wrap iframe{
-      position:absolute;
-      top:0;left:0;
-      width:100%;height:100%;
-      border:0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
     }
 
-    .lang-buttons,
+    /* ---------- PLACEHOLDER ---------- */
+    .placeholder {
+      background: #111;
+      border: 2px dashed rgba(255,255,255,0.25);
+      padding: 80px;
+      border-radius: 12px;
+      font-weight: bold;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      max-width: 600px;
+      margin: 40px auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.6s ease;
+      animation: pulse 3s infinite alternate;
+    }
+
+    .placeholder:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 34px rgba(0,0,0,0.9);
+      background: linear-gradient(145deg, #0f0f0f, #171717, #0f0f0f);
+      cursor: pointer;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255,255,255,0.03); }
+      50% { box-shadow: 0 0 25px rgba(255,255,255,0.10); }
+      100% { box-shadow: 0 0 10px rgba(255,255,255,0.03); }
+    }
+
+    /* ---------- MULTILINGUAL AUDIO PLAYER ---------- */
+    .lang-buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin: 12px 0;
+    }
+    .lang-buttons button{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.06);
+      color:#fff;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:700;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .lang-buttons button:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.10);
+      border-color: rgba(255,255,255,0.35);
+    }
     .track-buttons{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
       justify-content:center;
-      margin:12px 0;
+      margin: 10px 0 14px 0;
     }
-
-    button{
+    .track-buttons button{
       padding:8px 12px;
       border-radius:999px;
-      border:1px solid rgba(255,255,255,.22);
-      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.05);
       color:#fff;
       cursor:pointer;
+      font-size:13px;
       font-weight:700;
+      opacity:0.92;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease, opacity .12s ease;
     }
-
+    .track-buttons button:hover{
+      opacity:1;
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+      border-color: rgba(255,255,255,0.30);
+    }
     .player-wrap{
-      max-width:800px;
-      margin:0 auto;
+      width:100%;
       border-radius:14px;
       overflow:hidden;
-      border:1px solid rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.45);
+      background:#111;
+      max-width: 800px;
+      margin: 0 auto 10px;
+    }
+    .player-note{
+      text-align:center;
+      opacity:.8;
+      margin: 0 auto 30px;
+      max-width: 800px;
     }
 
-    footer{
-      text-align:center;
-      padding:40px 20px;
-      opacity:.6;
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9em;
+      color: rgba(255,255,255,0.55);
+      border-top: 1px solid rgba(255,255,255,0.12);
+      background: #000;
+    }
+
+    .footer-stamp{
+      margin-bottom: 10px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.85;
     }
   </style>
 </head>
@@ -165,49 +349,77 @@
 <body>
 
 <header>
-  <img src="./67ball.png" class="logo67" alt="Project 67 Logo">
+  <img src="./67ball.png" alt="Project 67 Logo" class="logo67">
   <h1>Project 67</h1>
-  <p>An interactive music and video experience.</p>
+  <p>An interactive music and video experience exploring adaptability, user participation, and identity integration. Coming soon.</p>
 
   <div class="header-buttons">
     <a class="btn-manifesto" href="./manifesto.html">Manifesto</a>
     <a class="btn-manifesto" href="./atlas.html">67 Atlas</a>
   </div>
+
+  <p class="manifesto-teaser">
+    <strong>Be the signal.</strong> Project 67 is a message of understanding in a noisy world —
+    love as advanced intelligence, verification as care.
+    <a href="./manifesto.html">Read the Manifesto →</a>
+  </p>
 </header>
 
+<!-- Jump Links Navigation -->
 <div class="jumpnav-wrap">
   <nav class="jumpnav">
     <a href="#brief">Brief</a>
     <a href="#videos">Videos</a>
     <a href="#lyrics">Lyrics</a>
     <a href="#audio">Audio</a>
+    <a href="./manifesto.html">Manifesto</a>
+    <a href="./atlas.html">67 Atlas</a>
+    <a href="#contact">Contact</a>
   </nav>
 </div>
 
 <section id="brief">
   <h2>Project Brief</h2>
   <p>
-    Project 67 is an experimental multimedia project combining original music,
-    interactive video frameworks, and adaptive audiovisual structures.
-    Users influence the content through participation and identity.
+    Project 67 is an experimental multimedia project combining original music, interactive video frameworks, and adaptive audiovisual structures.
+    Users influence the content through interaction, earning tokens that unlock new ways to participate. The system demonstrates the intersection of
+    creativity, adaptability, and user identity, offering a novel form of participatory media.
   </p>
   <p>
-    This site is the central hub while the full interactive platform is under development.
+    This work is inspired by the broader concept of "Proof of Experience" (PoE), a human-centric alternative to traditional proof-of-work systems described in
+    the <a href="https://github.com/Sometimesalex/proof-of-experience-crypto" target="_blank">Proof-of-Experience Crypto repository</a>. PoE reframes how digital participation and value can be established by leveraging lived experience rather than specialized hardware, aligning with Project 67’s emphasis on user engagement and identity.
+  </p>
+  <p>
+    This site serves as the central hub for the project while the full interactive platform is under development. It presents existing audio, planned visual interactivity, and an overview of future capabilities.
   </p>
 </section>
 
 <section id="videos">
   <h2>Interactive Video Demonstrations</h2>
+
   <div class="media-grid">
     <div class="media-card">
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/s9Brt-osm6Y" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/s9Brt-osm6Y?si=jxTNI-jv9awP1oU4"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
       </div>
+      <p>Prototype video — early demonstration</p>
     </div>
+
     <div class="media-card">
       <div class="video-wrap">
-        <iframe src="https://www.youtube.com/embed/_IYqtFccI-Y" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/embed/_IYqtFccI-Y?si=h82eKwmAXT4LKdvj"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
       </div>
+      <p>Prototype video — additional demonstration</p>
     </div>
   </div>
 </section>
@@ -252,6 +464,16 @@ six seven six six seven
 When i say it i feel alive again
 Ooooooo sixty seven do it again
 
+[Chorus]
+Ooooooo sixty seven yeah
+Can't get you out of my mind
+im gonna say it six seven times
+Ooooooo sixty seven
+six six seven
+aaaaaaaaaahhh six seven six six seven
+sixty seven touch me now six seven
+six six seven
+
 [Outro]
   </pre>
 </section>
@@ -259,31 +481,151 @@ Ooooooo sixty seven do it again
 <section id="audio">
   <h2>Audio Demonstrations</h2>
 
-  <div class="lang-buttons">
-    <button onclick="loadFeed('/Alsomeday/67-francais-traditional-1/')">🇫🇷 Français – Traditional 1</button>
-  </div>
+  <h3>Multilingual Tracks</h3>
+  <p class="player-note">Press play to listen.</p>
+
+  <div class="lang-buttons" id="langButtons"></div>
+  <div class="track-buttons" id="trackButtons" style="display:none;"></div>
 
   <div class="player-wrap">
-    <iframe id="mixcloudPlayer" width="100%" height="60" frameborder="0"></iframe>
+    <iframe
+      id="mixcloudPlayer"
+      width="100%"
+      height="60"
+      frameborder="0"
+      allow="encrypted-media; fullscreen; autoplay; web-share;"
+      src=""
+    ></iframe>
+  </div>
+
+  <script>
+    const tracks = {
+      "Arabic": {
+        label: "🇸🇦 Arabic",
+        versions: [
+          { name: "Modern 1", feed: "/Alsomeday/67-arabic-modern/" },
+          { name: "Modern 2", feed: "/Alsomeday/67-arabic-modern-2/" }
+        ]
+      },
+      "Español": {
+        label: "🇪🇸 Español",
+        versions: [
+          { name: "Flamenco 1", feed: "/Alsomeday/67-espanol-flamenco-andalusia-1/" },
+          { name: "Flamenco 2", feed: "/Alsomeday/67-espanol-flamenco-andalusia-2/" }
+        ]
+      },
+      "Français": {
+        label: "🇫🇷 Français",
+        versions: [
+          { name: "Traditional 1", feed: "/Alsomeday/67-francais-traditional-1/" },
+          { name: "Traditional 2", feed: "/Alsomeday/67-francais-traditional-2/" }
+        ]
+      },
+      "Nederlands": {
+        label: "🇳🇱 Nederlands",
+        versions: [
+          { name: "Version 1", feed: "/Alsomeday/67-nederlands-1/" }
+        ]
+      },
+      "Serbian": {
+        label: "🇷🇸 Serbian",
+        versions: [
+          { name: "Modern 1", feed: "/Alsomeday/67-serbian-folk-modern-1/" },
+          { name: "Modern 2", feed: "/Alsomeday/67-serbian-folk-modern-2/" }
+        ]
+      }
+    };
+
+    const langButtons = document.getElementById("langButtons");
+    const trackButtons = document.getElementById("trackButtons");
+    const player = document.getElementById("mixcloudPlayer");
+
+    function mixcloudSrc(feed){
+      const encoded = encodeURIComponent(feed);
+      return `https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=${encoded}`;
+    }
+
+    function loadFeed(feed){
+      player.src = mixcloudSrc(feed);
+    }
+
+    function showTracks(langKey){
+      const lang = tracks[langKey];
+      trackButtons.innerHTML = "";
+      trackButtons.style.display = "flex";
+
+      lang.versions.forEach(v => {
+        const b = document.createElement("button");
+        b.textContent = v.name;
+        b.onclick = () => loadFeed(v.feed);
+        trackButtons.appendChild(b);
+      });
+
+      loadFeed(lang.versions[0].feed);
+    }
+
+    Object.keys(tracks).forEach(langKey => {
+      const b = document.createElement("button");
+      b.textContent = tracks[langKey].label;
+      b.onclick = () => showTracks(langKey);
+      langButtons.appendChild(b);
+    });
+
+    // Default track on page load:
+    showTracks("Arabic");
+  </script>
+
+  <!-- Existing SoundCloud grid kept intact -->
+  <div class="media-grid">
+    <div class="media-card">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249182328&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+
+    <div class="media-card">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249182337&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+
+    <div class="media-card">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249180522&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+
+    <div class="media-card">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249180519&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
+
+    <div class="media-card">
+      <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249173277&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+    </div>
   </div>
 </section>
 
+<section id="interactive">
+  <h2>Future Interactive Space</h2>
+  <p>This is where users will be able to integrate themselves into the experience:</p>
+  <div class="placeholder animated-placeholder">
+    Token earned → Upload face or avatar → Become part of the video
+  </div>
+  <p>
+    Users will earn tokens through interaction. Tokens will unlock personalization, allowing them to visually appear in the music videos and shape the content themselves.
+    This future feature demonstrates the adaptability and identity integration core to Project 67.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact & Updates</h2>
+  <p>Sign up to get updates when Project 67 launches:</p>
+  <a href="mailto:project67poe@gmail.com">Contact / Sign Up</a>
+</section>
+
 <footer>
-  Be the signal // 67
+  <div class="footer-stamp">Be the signal // 67</div>
+  &copy; 2026 Project 67. All rights reserved.
 </footer>
-
-<script>
-  const player = document.getElementById("mixcloudPlayer");
-
-  function mixcloudSrc(feed){
-    const encoded = encodeURIComponent(feed);
-    return `https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=${encoded}`;
-  }
-
-  function loadFeed(feed){
-    player.src = mixcloudSrc(feed);
-  }
-</script>
 
 </body>
 </html>
