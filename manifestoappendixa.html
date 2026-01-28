@@ -17,7 +17,7 @@
     .wrap {
       max-width: 860px;
       margin: 0 auto;
-      padding-bottom: 60px;
+      padding-bottom: 100px;
     }
     h1, h2 {
       text-align: center;
@@ -46,10 +46,39 @@
     a:hover {
       text-decoration: underline;
     }
+    .back-link {
+      display: block;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .jukebox {
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 48px;
+    }
+    .jukebox h3 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .playlist {
+      max-height: 240px;
+      overflow-y: auto;
+      margin: 12px 0;
+    }
+    .playlist audio {
+      display: block;
+      margin-bottom: 16px;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
+    <a class="back-link" href="./manifesto.html">&larr; Back to Manifesto</a>
+
     <h1>The Atlas of Voices</h1>
     <h2>An Extension to the Atlas Manifesto</h2>
 
@@ -97,6 +126,18 @@
     <a href="./worldmap2.png" target="_blank">
       <img src="./worldmap2.png" alt="World Map 2" class="map-poster">
     </a>
+
+    <section class="jukebox">
+      <h3>Audio Jukebox — Selections from Audio1</h3>
+      <div class="playlist">
+        <audio controls src="./audio1/song1.mp3"></audio>
+        <audio controls src="./audio1/song2.mp3"></audio>
+        <audio controls src="./audio1/song3.mp3"></audio>
+        <!-- Add more <audio> tags here as needed for new files in audio1/ -->
+      </div>
+      <p style="text-align:center;font-size:14px;opacity:0.8;">To update, just drop more <code>.mp3</code> files into the <code>audio1/</code> folder.</p>
+    </section>
+
   </div>
 </body>
 </html>
