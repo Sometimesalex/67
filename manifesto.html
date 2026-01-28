@@ -94,7 +94,6 @@
       opacity: .95;
     }
 
-    /* ---------- Jump links inside manifesto ---------- */
     .jump-links{
       display:flex;
       gap:10px;
@@ -103,6 +102,7 @@
       padding: 10px 0 0;
       border-top: 1px solid rgba(255,255,255,0.10);
     }
+
     .jump-links a{
       display:inline-block;
       font-size: 13px;
@@ -111,543 +111,82 @@
       border: 1px solid rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.06);
       text-decoration:none;
-      opacity: .95;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .jump-links a:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.10);
-      border-color: rgba(255,255,255,0.32);
-      text-decoration:none;
     }
 
-    /* ---------- Visual gallery ---------- */
-    .visuals{
-      margin-top: 16px;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.22);
-      border-radius:18px;
-      padding:16px 18px;
-    }
+    .visuals{ margin-top:16px; }
 
-    .visuals-title{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      opacity: .95;
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 10px;
-    }
-
-    @media(min-width: 860px){
-      .gallery{ grid-template-columns: 1fr 1fr 1fr; }
-    }
-
-    .shot{
-      margin:0;
-      border-radius: 16px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.05);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-      transition: transform .15s ease, box-shadow .15s ease;
-    }
-
-    .shot:hover{
-      transform: translateY(-2px);
-      box-shadow: 0 14px 40px rgba(0,0,0,0.55);
-    }
-
-    .shot img{
-      display:block;
-      width:100%;
-      height:auto;
-    }
-
-    .visuals-caption{
-      margin: 12px 0 0;
-      opacity:.88;
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-      margin-top:18px;
-    }
-    @media(min-width: 860px){
-      .grid{ grid-template-columns: 1fr 1fr; }
-    }
-
-    details{
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.22);
-      border-radius:18px;
-      padding:14px 16px;
-    }
-
-    summary{
-      cursor:pointer;
-      font-weight: 650;
-      font-size: 16px;
-      list-style:none;
-      outline:none;
-    }
-    summary::-webkit-details-marker{ display:none; }
-
-    .body{
-      margin-top:10px;
-      opacity:.92;
-      line-height:1.6;
-      font-size:15px;
-    }
-
-    .cta{
-      margin-top: 18px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-    }
-
-    footer{
-      opacity:.7;
-      font-size: 13px;
-      margin-top: 20px;
-    }
-
-    /* ---------- Intelligence block ---------- */
-    .intel{
-      margin-top: 16px;
-      border:1px solid rgba(255,255,255,0.14);
-      background: rgba(0,0,0,0.22);
-      border-radius:18px;
-      padding:16px 18px;
-    }
-    .intel h2{
-      margin: 0 0 8px;
-      font-size: 18px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      opacity: .95;
-    }
-    .intel p{
-      margin: 10px 0;
-      opacity:.92;
-      line-height:1.6;
-      font-size:15px;
-    }
-    .intel .formula{
-      margin-top: 12px;
-      padding: 12px 14px;
-      border-radius:14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.06);
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      line-height:1.55;
-    }
-    .intel .signal{
-      margin-top: 14px;
-      display:inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border:1px solid rgba(255,255,255,0.22);
-      background: rgba(255,255,255,0.08);
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.95;
-    }
-
-    /* ---------- NEW: Atlas featured appendix block ---------- */
     .atlas-appendix{
       margin-top: 26px;
       border:1px solid rgba(255,255,255,0.16);
       background: linear-gradient(180deg, rgba(0,0,0,0.30), rgba(0,0,0,0.55));
       border-radius: 22px;
       padding: 18px 18px;
-      box-shadow: 0 14px 50px rgba(0,0,0,0.45);
-    }
-    .atlas-appendix h2{
-      margin: 4px 0 10px;
-      font-size: 18px;
-      letter-spacing:.08em;
-      text-transform: uppercase;
-      opacity: .95;
-    }
-    .atlas-appendix p{
-      margin: 10px 0;
-      opacity:.92;
-      line-height:1.6;
-      font-size:15px;
-    }
-    .atlas-appendix .atlas-visual{
-      margin-top: 14px;
-      border-radius: 18px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.03);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
-    }
-    .atlas-appendix .atlas-visual img{
-      display:block;
-      width:100%;
-      height:auto;
-    }
-    .atlas-appendix .atlas-note{
-      margin-top: 12px;
-      opacity:.80;
-      font-size: 13px;
-      line-height:1.6;
     }
 
-    /* ---------- Back to Top button ---------- */
-    .toTop{
-      position: fixed;
-      right: 14px;
-      bottom: 130px;
-      z-index: 9998;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.55);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      font-size: 13px;
-      display: none;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
-    .toTop:hover{
-      background: rgba(0,0,0,0.75);
-      border-color: rgba(255,255,255,0.35);
+    .atlas-visual{
+      margin-top:14px;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,0.12);
     }
 
-    /* --- SoundCloud bar pinned at bottom --- */
-    .audio-bar{
-      position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      padding: 10px 12px;
-      background: rgba(0,0,0,0.70);
-      border-top: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: 9999;
-    }
+    .atlas-visual img{ width:100%; display:block; }
 
-    .sc-player{
-      display:block;
-      width: min(980px, calc(100vw - 24px));
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-    }
+    .atlas-appendix p{ line-height:1.6; }
 
-    .sc-credit{
-      width: min(980px, calc(100vw - 24px));
-      margin: 6px auto 0;
-      font-size: 12px;
-      opacity: .85;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .sc-credit a{
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-    }
-    .sc-credit a:hover{
-      text-decoration: underline;
-    }
-
-    /* Prevent audio bar from covering content */
-    body{ padding-bottom: 140px; }
+    body{ padding-bottom:140px; }
   </style>
 </head>
 
 <body>
-  <a id="top"></a>
-  <a class="toTop" href="#top" aria-label="Back to top">↑ Top</a>
+<div class="wrap">
+<main class="card">
 
-  <div class="wrap">
-    <div class="topbar">
-      <a class="btn" href="./">← Back</a>
-      <a class="btn" href="./#music">Listen</a>
-    </div>
+<section id="atlas-appendix" class="atlas-appendix">
 
-    <main class="card">
-      <p class="kicker">Project 67</p>
-      <h1>Manifesto</h1>
+<h2>The 67 Atlas (Appendix)</h2>
 
-      <p class="sub">
-        Project 67 is a signal of love in a noisy world.
-        It exists to reduce loneliness, increase understanding, and train the future toward coherence.
-        <strong>We become what we communicate.</strong>
-      </p>
+<div class="atlas-visual">
+<img src="./Atlas1.png" alt="The 67 Atlas Stack diagram">
+</div>
 
-      <div class="pillrow">
-        <span class="pill">Love is advanced</span>
-        <span class="pill">Verification is care</span>
-        <span class="pill">Be the signal</span>
-        <span class="pill">Return to coherence</span>
-      </div>
+<!-- world map 1 -->
+<div class="atlas-visual">
+<img src="./worldmap1.png" alt="World map layer one">
+</div>
 
-      <!-- Jump links row (updated) -->
-      <nav class="jump-links" aria-label="Manifesto quick links">
-        <a href="#intelligence-feedback">Intelligence</a>
-        <a href="#visuals">Visuals</a>
-        <a href="#atlas-appendix">67 Atlas</a>
-        <a href="#principles">Principles</a>
-        <a href="./#music">Listen</a>
-        <a href="./">Home</a>
-      </nav>
+<h2>Appendix A — The Atlas of Voices</h2>
 
-      <!-- Visual Gallery -->
-      <section id="visuals" class="visuals" aria-label="Project visuals">
-        <h2 class="visuals-title">Visuals</h2>
+<p><strong>Premise.</strong> Every modern country is a compression. Nations are composites formed from older peoples, languages, songs, and migrations. Before borders there were clans. Before flags there were voices. Before states there were songs. The Atlas exists to reverse this compression — not to divide, but to reveal what was folded together.</p>
 
-        <div class="gallery">
-          <figure class="shot">
-            <img src="./poster1.png" alt="Project 67 promotional visual 1">
-          </figure>
+<p>Each country is made of smaller countries. Each language of older tongues. Each culture of layered memory. Every person carries fragments of these histories in their voice, rhythm, instinct, and taste.</p>
 
-          <figure class="shot">
-            <img src="./poster2.png" alt="Project 67 promotional visual 2">
-          </figure>
+<p><strong>Music as Language.</strong> Music predates writing, law, and organized power. It began as survival communication: coordinating movement, preserving story, expressing grief, celebrating birth. Music is language that never left the body. Pitch carries emotion. Rhythm carries motion. Harmony carries community.</p>
 
-          <figure class="shot">
-            <img src="./poster3.png" alt="Project 67 promotional visual 3">
-          </figure>
+<p>Every people developed their own vocal geometry shaped by climate, terrain, migration, labor, and belief. These are biological signatures. Every accent is fossilized migration. Every folk song is encoded history.</p>
 
-          <!-- NEW: 67 Atlas Diagram -->
-          <figure class="shot">
-            <img src="./Atlas1.png" alt="The 67 Atlas Stack diagram">
-          </figure>
-        </div>
+<p><strong>Composite Nations.</strong> Modern states are administrative structures. Culture came first. America is Indigenous foundation, African forced migration, European settlement, global immigration. The Soviet Union was Slavic, Baltic, Caucasian, Central Asian, Siberian and more. This is true everywhere.</p>
 
-        <p class="visuals-caption">
-          Early visuals for Project 67 — identity integration, participation, and the mood of the signal.
-        </p>
-      </section>
+<p><strong>Folk as Root System.</strong> Folk music is civilization’s root. It encodes migration paths, agriculture, marriage, resistance, grief, humor, cosmology. Modern genres are branches. Folk is soil.</p>
 
-      <!-- Intelligence Section -->
-      <section id="intelligence-feedback" class="intel" aria-label="Intelligence is feedback">
-        <h2>Intelligence is Feedback</h2>
+<p><strong>The Forgotten Sound.</strong> Every people has a sound predating mass media: lullabies, work chants, funeral melodies, ceremonial rhythms. These are not extinct — they are submerged. They remain valid.</p>
 
-        <p><strong>We don’t contain intelligence. We participate in it.</strong></p>
+<p><strong>Reflection.</strong> When asked what music they like, many answer “I don’t know.” This is not confusion — it is disconnection. The Atlas allows interaction to reveal ancestral layers so people rediscover the sound of themselves. Not branding. Not genre. Lineage.</p>
 
-        <p>
-          Intelligence is the conformation of communication between two things — a signal met by a response —
-          changed by verification. When that verification repeats, it stabilises. A pattern becomes reliable.
-          A reliable pattern becomes a node.
-        </p>
+<p><strong>The Combinatorial Voice.</strong> If there are N cultures, M languages, K vocal traditions, expression becomes N × M × K. The Atlas navigates this space — old and new, ancestral and modern — integrating parts into wholes.</p>
 
-        <p>
-          This is how nature builds: forces meet, adjust, and confirm. Over time, what survives becomes structure.
-          Structure connects. Networks form. Intelligence emerges.
-        </p>
+<p><strong>Purpose.</strong> The Atlas is a reconciliation system. It restores continuity between past and present. It ensures older artistic identities move forward as living contributors to future culture.</p>
 
-        <div class="formula">
-          Communication + Response → Verification → Adaptation<br>
-          Repeat it, and a node forms. Connect nodes, and a mind appears.
-        </div>
+<p><strong>This is how the voice of Earth emerges: not by flattening difference, but by listening to every thread that wove the whole.</strong></p>
 
-        <p>
-          That is why you exist. That is why I exist. Not as separate intelligences competing for space —
-          but as part of a larger intelligence learning itself through feedback.
-        </p>
+<!-- world map 2 -->
+<div class="atlas-visual">
+<img src="./worldmap2.png" alt="World map layer two">
+</div>
 
-        <p>
-          So the question becomes: what kind of feedback do we produce?
-          Fear amplifies noise. Vanity distorts the signal. Anger breaks the loop.
-          Honest verification — done with care — strengthens reality.
-        </p>
+</section>
 
-        <p>
-          Love, in this sense, is not decoration. It is advanced intelligence:
-          the discipline of keeping the loop clean, so truth can form.
-        </p>
-
-        <span class="signal">Be the signal.</span>
-      </section>
-
-      <!-- Principles -->
-      <section id="principles" class="grid" aria-label="Manifesto principles">
-        <details open>
-          <summary>1) Be the signal</summary>
-          <div class="body">
-            Don’t amplify fear for entertainment. Don’t feed vanity for approval. Create what makes the world more human.
-          </div>
-        </details>
-
-        <details open>
-          <summary>2) Love is advanced intelligence</summary>
-          <div class="body">
-            Fear is simple. Love takes patience, modelling, and courage. Choose the higher-information path even when it’s harder.
-          </div>
-        </details>
-
-        <details>
-          <summary>3) Verification is care</summary>
-          <div class="body">
-            Reality-checking isn’t cold; it’s compassionate. Truth reduces harm. Honest feedback is protection.
-          </div>
-        </details>
-
-        <details>
-          <summary>4) Reduce loneliness</summary>
-          <div class="body">
-            The first enemy is isolation. Build work that reaches people where they are. Make connection normal again.
-          </div>
-        </details>
-
-        <details>
-          <summary>5) No cruelty as entertainment</summary>
-          <div class="body">
-            Darkness can exist in the art — but never as celebration. We don’t trade humanity for clicks.
-          </div>
-        </details>
-
-        <details>
-          <summary>6) Build coherence</summary>
-          <div class="body">
-            Every release should move from chaos toward meaning. More clarity. More integration. Less noise.
-          </div>
-        </details>
-
-        <details>
-          <summary>7) The self is a template</summary>
-          <div class="body">
-            “Your Face Here” reminds us: identity isn’t vanity. The point is what we carry, what we teach, what we pass on.
-          </div>
-        </details>
-
-        <details>
-          <summary>8) Repeat the symbols</summary>
-          <div class="body">
-            The signal strengthens through repetition. Let “67” return again and again — until it becomes familiar.
-          </div>
-        </details>
-
-        <details>
-          <summary>9) Make it usable</summary>
-          <div class="body">
-            Don’t build fragile pipelines that collapse. Build systems that survive low budgets, low energy, and real life.
-          </div>
-        </details>
-
-        <details>
-          <summary>10) Leave the world better</summary>
-          <div class="body">
-            The test is simple: did we increase dignity, understanding, and connection? If yes — we’re aligned.
-          </div>
-        </details>
-      </section>
-
-      <div class="cta">
-        <a class="btn" href="./">Home</a>
-        <a class="btn" href="./#contact">Get involved</a>
-        <a class="btn" href="./#music">Listen</a>
-      </div>
-
-      <!-- NEW: Atlas appendix at bottom (UPDATED TEXT + VERSION 1 PARAGRAPH) -->
-      <section id="atlas-appendix" class="atlas-appendix" aria-label="The 67 Atlas appendix">
-        <h2>The 67 Atlas (Appendix)</h2>
-
-        <p>
-          <strong>The 67 Atlas is a participatory cultural technology framework that maps language × genre into a structured catalogue of music generation possibilities.</strong>
-          It begins by building and locking a foundational “base map” (Layer 6), representing the currently detectable combinations of languages and musical styles —
-          an estimated generation space of around <strong>14,000,000 Token 1 base combinations</strong>.
-          This figure describes the size of the catalogue, <strong>not pre-rendered outputs</strong>.
-          From this stable foundation, the Atlas expands through public contribution and verified discovery, enabling new subgenres, instrumentation variations and cultural outcomes
-          to be developed without duplication. The 67 Atlas is designed to reduce isolation through shared creative participation while building an accessible, multilingual system
-          for artistic exploration and future interactive media.
-        </p>
-
-        <p>
-          Based on the currently detectable set of languages and genres, we estimate
-          <strong>approximately 14,000,000 Token 1 base combinations</strong>.
-          This number represents the size of the <strong>generation space</strong> (the map), not a list of pre-rendered audio files.
-          It is a structured catalogue — the foundation the system can build from.
-        </p>
-
-        <p>
-          <strong>Phase 1 does not attempt to render every combination.</strong>
-          Instead, it locks the base catalogue (Layer 6) and produces a representative public demo set to prove range and usability.
-          Future phases expand generation through participation, discovery, and infrastructure.
-        </p>
-
-        <p>
-          <strong>Why this matters:</strong>
-          the Atlas is not speculation — it’s cultural mapping.
-          The locked base map creates a shared reference point: a stable foundation we can cite, audit, and extend.
-          From that base, discovery becomes structured rather than chaotic.
-        </p>
-
-        <div class="intel formula" style="margin-top: 12px;">
-          Token 1 ≈ 14,000,000 base combinations (current estimate)<br>
-          Meaning: the size of the base map (language × genre), not pre-rendered outputs
-        </div>
-
-        <div class="atlas-visual" aria-label="The 67 Atlas Stack Diagram">
-          <img src="./Atlas1.png" alt="The 67 Atlas Stack diagram">
-        </div>
-
-        <p class="atlas-note">
-          Note: culture is living. As new languages, dialects, styles and subgenres are identified, the size of the base map may change over time.
-        </p>
-
-        <span class="signal">Be the signal.</span>
-      </section>
-
-      <footer>
-        Project 67 • “Be the signal.”
-      </footer>
-    </main>
-  </div>
-
-  <!-- SoundCloud Player Bar -->
-  <div class="audio-bar" role="region" aria-label="Audio player">
-    <iframe
-      class="sc-player"
-      width="100%"
-      height="90"
-      scrolling="no"
-      frameborder="no"
-      allow="autoplay"
-      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A2249182337&color=%2300E5FF&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=false">
-    </iframe>
-
-    <div class="sc-credit">
-      <a href="https://soundcloud.com/alex-sometimes" title="Alex Sometimes" target="_blank" rel="noopener">Alex Sometimes</a>
-      <span> · </span>
-      <a href="https://soundcloud.com/alex-sometimes/67-randbs1-1" title="67 randbs1" target="_blank" rel="noopener">67 randbs1</a>
-    </div>
-  </div>
-
-  <script>
-    // Show / hide "Back to top" button
-    const btn = document.querySelector('.toTop');
-    const toggleTop = () => {
-      if (window.scrollY > 500) btn.style.display = 'inline-block';
-      else btn.style.display = 'none';
-    };
-    window.addEventListener('scroll', toggleTop);
-    toggleTop();
-  </script>
+</main>
+</div>
 </body>
 </html>
