@@ -12,78 +12,78 @@ html, body {
 }
 
 body {
-  background: #000;
-  background-image: url("./vikingdisco.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: #000 url("./vikingdisco.png") center/cover no-repeat;
   font-family: system-ui, Arial, sans-serif;
   color: white;
 }
 
-/* Dark cinematic overlay */
+/* Overlay */
 body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
-  z-index: 0;
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:0;
 }
 
-/* Navigation */
 .nav {
-  position: relative;
-  z-index: 1;
-  padding: 20px 24px;
+  position:relative;
+  z-index:1;
+  padding:20px 24px;
 }
 
 .nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  opacity: 0.85;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
 }
 
-.nav a:hover {
-  opacity: 1;
-}
-
-/* Main content */
 .container {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px 20px 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  position:relative;
+  z-index:1;
+  max-width:900px;
+  margin:0 auto;
+  padding:10px 20px 60px;
 }
 
 .title {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 20px 0 10px;
+  text-align:center;
+  font-size:2rem;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin:20px 0;
 }
 
-/* Player cards */
-.player {
-  width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow: 0 6px 24px rgba(0,0,0,0.6);
-  background: rgba(0,0,0,0.4);
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  justify-content:center;
+  margin-bottom:18px;
 }
 
-iframe {
-  display: block;
-  width: 100%;
-  height: 400px;
-  border: 0;
+.buttons button{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);
+  background:rgba(0,0,0,.4);
+  color:white;
+  cursor:pointer;
+  font-weight:700;
+}
+
+.player{
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.2);
+  box-shadow:0 8px 28px rgba(0,0,0,.7);
+}
+
+iframe{
+  width:100%;
+  height:400px;
+  border:0;
 }
 </style>
 </head>
@@ -96,37 +96,50 @@ iframe {
 
 <div class="container">
 
-  <div class="title">Viking Disco</div>
+<div class="title">Viking Disco</div>
 
-  <div class="player">
-    <iframe
-      src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-viking-norse-disco%2F"
-      allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;">
-    </iframe>
-  </div>
+<div class="buttons">
+  <button onclick="play(0)">Norse Disco I</button>
+  <button onclick="play(1)">Norse Disco II</button>
+  <button onclick="play(2)">Death Metal Disco I</button>
+  <button onclick="play(3)">Death Metal Disco II</button>
+</div>
 
-  <div class="player">
-    <iframe
-      src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-viking-norse-disco-2%2F"
-      allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;">
-    </iframe>
-  </div>
-
-  <div class="player">
-    <iframe
-      src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-viking-norse-death-metal-disco-2%2F"
-      allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;">
-    </iframe>
-  </div>
-
-  <div class="player">
-    <iframe
-      src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-viking-norse-death-metal-disco-1%2F"
-      allow="encrypted-media; fullscreen; autoplay; idle-detection; speaker-selection; web-share;">
-    </iframe>
-  </div>
+<div class="player">
+  <iframe id="player" allow="encrypted-media; fullscreen; autoplay;"></iframe>
+</div>
 
 </div>
+
+<script>
+const feeds = [
+  "/maybesometimes/67-viking-norse-disco/",
+  "/maybesometimes/67-viking-norse-disco-2/",
+  "/maybesometimes/67-viking-norse-death-metal-disco-1/",
+  "/maybesometimes/67-viking-norse-death-metal-disco-2/"
+];
+
+const iframe = document.getElementById("player");
+
+function src(feed){
+  return "https://player-widget.mixcloud.com/widget/iframe/?feed="
+    + encodeURIComponent(feed)
+    + "&autoplay=1";
+}
+
+function play(i){
+  iframe.src = src(feeds[i]);
+}
+
+/* First user interaction auto-starts track 0 */
+let started=false;
+document.body.addEventListener("click",()=>{
+  if(!started){
+    play(0);
+    started=true;
+  }
+},{once:true});
+</script>
 
 </body>
 </html>
