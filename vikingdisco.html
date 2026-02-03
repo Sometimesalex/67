@@ -131,14 +131,18 @@ function play(i){
   iframe.src = src(feeds[i]);
 }
 
-/* First user interaction auto-starts track 0 */
-let started=false;
-document.body.addEventListener("click",()=>{
-  if(!started){
-    play(0);
-    started=true;
+// Autoplay Death Metal Disco on load (index 2)
+play(2);
+
+// Fallback: if browser blocks autoplay, first click restarts it
+let started = false;
+document.body.addEventListener("click", () => {
+  if (!started) {
+    play(2);
+    started = true;
   }
-},{once:true});
+}, { once: true });
+
 </script>
 
 </body>
