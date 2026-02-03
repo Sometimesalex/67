@@ -1,1 +1,117 @@
-.gitkeep
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WHAT IF?</title>
+
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:#fff;
+  font-family: system-ui, Arial, sans-serif;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Top nav */
+.nav{
+  padding:18px 24px;
+}
+
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  opacity:.85;
+}
+
+.nav a:hover{
+  opacity:1;
+}
+
+/* Center stack */
+.container{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:36px;
+  padding:40px 20px 60px;
+}
+
+/* Panels */
+.panel{
+  width:100%;
+  max-width:720px;
+  aspect-ratio: 16 / 9;
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 10px 40px rgba(0,0,0,.8);
+  transition: transform .25s ease, box-shadow .25s ease;
+  cursor:pointer;
+}
+
+.panel:hover{
+  transform:scale(1.03);
+  box-shadow:0 20px 70px rgba(0,0,0,.95);
+}
+
+.panel img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+/* Subtle vignette */
+.panel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  box-shadow: inset 0 0 80px rgba(0,0,0,.6);
+}
+
+/* Bottom nav */
+.footer{
+  text-align:center;
+  padding:18px;
+  opacity:.6;
+  font-size:.9em;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<div class="nav">
+  <a href="./index.html">← Back to Project 67</a>
+</div>
+
+<!-- Panels -->
+<div class="container">
+
+  <!-- Celtic Nations -->
+  <a class="panel" href="./celticnations.html">
+    <img src="./ceticnations.png" alt="Celtic Nations">
+  </a>
+
+  <!-- Viking Disco -->
+  <a class="panel" href="./vikingdisco.html">
+    <img src="./vikingdisco.png" alt="Viking Disco">
+  </a>
+
+</div>
+
+<div class="footer">
+  What if?
+</div>
+
+</body>
+</html>
