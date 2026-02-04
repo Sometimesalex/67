@@ -6,45 +6,148 @@
 <title>Celtic Nations</title>
 
 <style>
-html,body{margin:0;height:100%}
-body{
-background:#000 url("./celticvictory2.png") center/cover no-repeat;
-font-family:system-ui,Arial,sans-serif;color:#fff
+html, body { margin:0; height:100%; }
+
+body {
+  background:#000 url("./celticvictory2.png") center/cover no-repeat;
+  font-family:system-ui, Arial, sans-serif;
+  color:#fff;
 }
-body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:0}
-.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:20px}
-.title{text-align:center;font-size:2rem;font-weight:900;letter-spacing:.12em;margin:10px 0}
-.glass{background:rgba(0,0,0,.4);border-radius:16px;padding:18px;margin:16px 0}
-.player-wrap{text-align:center}
-iframe{width:100%;height:420px;border-radius:12px}
-.controls{display:flex;justify-content:space-between;margin-top:12px}
-.btn{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-weight:800}
-.track{text-align:center;font-weight:900;letter-spacing:.08em;margin:10px 0}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:0;
+}
+
+.nav{
+  position:relative;
+  z-index:1;
+  padding:18px 22px;
+}
+
+.nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+}
+
+.container{
+  position:relative;
+  z-index:1;
+  max-width:1000px;
+  margin:0 auto;
+  padding:10px 20px 80px;
+}
+
+.title{
+  text-align:center;
+  font-size:2.1rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin:14px 0 18px;
+}
+
+.glass{
+  max-width:900px;
+  margin:0 auto 22px;
+  padding:18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.40);
+}
+
+.sub{
+  opacity:.9;
+  line-height:1.55;
+}
+
+.player-wrap{
+  text-align:center;
+}
+
+iframe{
+  width:100%;
+  height:420px;
+  border-radius:12px;
+}
+
+.controls{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+}
+
+.btn{
+  padding:10px 16px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.3);
+  cursor:pointer;
+  font-weight:800;
+  background:rgba(0,0,0,.35);
+}
+
+.track{
+  text-align:center;
+  font-weight:900;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+  text-transform:uppercase;
+  opacity:.9;
+}
+
+footer{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  opacity:.6;
+  padding:20px;
+}
 </style>
 </head>
 
 <body>
+
+<div class="nav">
+  <a href="./whatif.html">← Back</a>
+</div>
 
 <div class="container">
 
 <div class="title">Celtic Nations</div>
 
 <div class="glass">
-Dominance is the illusion of power by the removal of competition.
+<div class="sub">
+Dominance is the illusion of power by the removal of competition.<br><br>
+When culture and language are erased, arrogance replaces identity.<br><br>
+We carry anger because we are denied who we are.<br>
+That theft was done for nothing but ego.
+</div>
 </div>
 
 <div class="glass player-wrap">
+
 <div class="track" id="trackName"></div>
 
 <iframe id="player" allow="encrypted-media; fullscreen"></iframe>
 
 <div class="controls">
-<div class="btn" onclick="prev()">◀ Prev</div>
-<div class="btn" onclick="next()">Next ▶</div>
-</div>
+  <div class="btn" onclick="prev()">◀ Prev</div>
+  <div class="btn" onclick="next()">Next ▶</div>
 </div>
 
 </div>
+
+</div>
+
+<footer>Project 67 // Celtic Nations</footer>
 
 <script>
 const tracks=[
@@ -67,22 +170,22 @@ const player=document.getElementById("player");
 const name=document.getElementById("trackName");
 
 function load(){
-name.textContent=tracks[i][0];
-player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
+  name.textContent=tracks[i][0];
+  player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
 }
 
-function next(){i=(i+1)%tracks.length;load()}
-function prev(){i=(i-1+tracks.length)%tracks.length;load()}
+function next(){ i=(i+1)%tracks.length; load(); }
+function prev(){ i=(i-1+tracks.length)%tracks.length; load(); }
 
-// swipe support
+// mobile swipe
 let x0=null;
 player.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
 player.addEventListener("touchend",e=>{
-if(!x0)return;
-let dx=e.changedTouches[0].clientX-x0;
-if(dx>50)prev();
-if(dx<-50)next();
-x0=null;
+  if(!x0) return;
+  let dx=e.changedTouches[0].clientX-x0;
+  if(dx>50) prev();
+  if(dx<-50) next();
+  x0=null;
 });
 
 load();
