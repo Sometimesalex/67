@@ -6,133 +6,67 @@
 <title>Celtic Nations</title>
 
 <style>
-html, body { margin:0; height:100%; }
-
-body {
-  background:#000 url("./celticvictory2.png") center/cover no-repeat;
-  font-family:system-ui, Arial, sans-serif;
-  color:#fff;
+html,body{margin:0;height:100%}
+body{
+background:#000;
+font-family:system-ui,Arial,sans-serif;
+color:#fff
 }
-
 body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:0;
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.55);
+z-index:0
 }
 
-.nav{
-  position:relative;
-  z-index:1;
-  padding:18px 22px;
-}
-
+.nav{position:relative;z-index:2;padding:18px 22px}
 .nav a{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(0,0,0,.35);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
+padding:10px 14px;border-radius:999px;
+border:1px solid rgba(255,255,255,.22);
+background:rgba(0,0,0,.35);color:#fff;text-decoration:none;font-weight:800
 }
 
-.container{
-  position:relative;
-  z-index:1;
-  max-width:1000px;
-  margin:0 auto;
-  padding:10px 20px 80px;
-}
+.container{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:10px 20px 80px}
+.title{text-align:center;font-size:2.1rem;font-weight:900;letter-spacing:.14em;margin:14px 0}
+.glass{max-width:900px;margin:0 auto 22px;padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.4)}
+.sub{opacity:.9;line-height:1.55}
 
-.title{
-  text-align:center;
-  font-size:2.1rem;
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  margin:14px 0 18px;
+/* hero image */
+.hero{
+position:relative;
+max-width:900px;
+margin:0 auto 22px;
+border-radius:18px;
+overflow:hidden;
 }
-
-.glass{
-  max-width:900px;
-  margin:0 auto 22px;
-  padding:18px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.40);
+.hero img{
+width:100%;
+display:block;
+transition:opacity .5s ease;
 }
-
-.sub{
-  opacity:.9;
-  line-height:1.55;
-}
-
-.player-wrap{
-  text-align:center;
-}
-
-.track{
-  text-align:center;
-  font-weight:900;
-  letter-spacing:.08em;
-  margin-bottom:10px;
-  text-transform:uppercase;
-  opacity:.9;
-}
-
-iframe{
-  width:100%;
-  height:420px;
-  border-radius:12px;
-  transition:opacity .4s ease;
-  opacity:1;
-}
-
-/* fade + glow */
 .fade{opacity:0}
-.glow{
-  box-shadow:0 0 30px rgba(255,255,255,.25),
-             0 0 60px rgba(255,255,255,.15);
-  animation:pulse 3s ease-in-out infinite;
-}
 
-@keyframes pulse{
-  0%{box-shadow:0 0 20px rgba(255,255,255,.15)}
-  50%{box-shadow:0 0 60px rgba(255,255,255,.35)}
-  100%{box-shadow:0 0 20px rgba(255,255,255,.15)}
-}
+/* player */
+.player-wrap{text-align:center}
+iframe{width:100%;height:420px;border-radius:12px}
 
-.controls{
-  display:flex;
-  justify-content:space-between;
-  margin-top:12px;
-}
-
+/* controls */
+.track{text-align:center;font-weight:900;letter-spacing:.08em;margin:10px 0;text-transform:uppercase}
+.controls{display:flex;justify-content:space-between;margin-top:10px}
 .btn{
-  padding:10px 16px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.3);
-  cursor:pointer;
-  font-weight:800;
-  background:rgba(0,0,0,.35);
+padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);
+cursor:pointer;font-weight:800;background:rgba(0,0,0,.35)
 }
 
-footer{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  opacity:.6;
-  padding:20px;
-}
+footer{position:relative;z-index:1;text-align:center;opacity:.6;padding:20px}
 </style>
 </head>
 
 <body>
 
 <div class="nav">
-  <a href="./whatif.html">← Back</a>
+<a href="./whatif.html">← Back</a>
 </div>
 
 <div class="container">
@@ -142,10 +76,14 @@ footer{
 <div class="glass">
 <div class="sub">
 Dominance is the illusion of power by the removal of competition.<br><br>
-When culture and language are erased, ignorance and arrogance replaces identity.<br><br>
+When culture and language are erased, arrogance replaces identity.<br><br>
 We carry anger because we are denied who we are.<br>
 That theft was done for nothing but ego.
 </div>
+</div>
+
+<div class="hero">
+<img id="hero" src="welsh-modern.png">
 </div>
 
 <div class="glass player-wrap">
@@ -155,8 +93,8 @@ That theft was done for nothing but ego.
 <iframe id="player" allow="encrypted-media; fullscreen"></iframe>
 
 <div class="controls">
-  <div class="btn" onclick="prev()">◀ Prev</div>
-  <div class="btn" onclick="next()">Next ▶</div>
+<div class="btn" onclick="prev()">◀ Prev</div>
+<div class="btn" onclick="next()">Next ▶</div>
 </div>
 
 </div>
@@ -181,34 +119,45 @@ const tracks=[
 ["Welsh Folk","%2Fsometimesamonkey%2F67-folk-wales-2%2F"]
 ];
 
-let i=0;
+const hero=document.getElementById("hero");
 const player=document.getElementById("player");
 const name=document.getElementById("trackName");
+let i=0;
 
-function load(){
-  player.classList.remove("glow");
-  player.classList.add("fade");
-
-  setTimeout(()=>{
-    name.textContent=tracks[i][0];
-    player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
-    player.classList.remove("fade");
-    player.classList.add("glow");
-  },300);
+function bgFor(title){
+const t=title.toLowerCase();
+const mode=t.includes("folk")?"folk":"modern";
+if(t.includes("welsh"))return`welsh-${mode}.png`;
+if(t.includes("irish"))return`irish-${mode}.png`;
+if(t.includes("breton"))return`breton-${mode}.png`;
+if(t.includes("scots"))return`scottish-${mode}.png`;
+if(t.includes("manx"))return`manx-${mode}.png`;
+if(t.includes("cornish"))return`cornish-${mode}.png`;
+return"welsh-modern.png";
 }
 
-function next(){ i=(i+1)%tracks.length; load(); }
-function prev(){ i=(i-1+tracks.length)%tracks.length; load(); }
+function load(){
+hero.classList.add("fade");
+setTimeout(()=>{
+name.textContent=tracks[i][0];
+player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
+hero.src=bgFor(tracks[i][0]);
+hero.classList.remove("fade");
+},300);
+}
 
-// swipe on mobile
+function next(){i=(i+1)%tracks.length;load()}
+function prev(){i=(i-1+tracks.length)%tracks.length;load()}
+
+// swipe
 let x0=null;
-player.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
-player.addEventListener("touchend",e=>{
-  if(!x0)return;
-  let dx=e.changedTouches[0].clientX-x0;
-  if(dx>50)prev();
-  if(dx<-50)next();
-  x0=null;
+hero.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
+hero.addEventListener("touchend",e=>{
+if(!x0)return;
+let dx=e.changedTouches[0].clientX-x0;
+if(dx>50)prev();
+if(dx<-50)next();
+x0=null;
 });
 
 load();
