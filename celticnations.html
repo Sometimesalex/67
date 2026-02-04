@@ -6,182 +6,86 @@
 <title>Celtic Nations</title>
 
 <style>
-html, body { margin:0; height:100%; }
-
-body {
-  background:#000 url("./celticvictory2.png") center/cover no-repeat;
-  font-family:system-ui, Arial, sans-serif;
-  color:#fff;
+html,body{margin:0;height:100%}
+body{
+background:#000 url("./celticvictory2.png") center/cover no-repeat;
+font-family:system-ui,Arial,sans-serif;color:#fff
 }
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:0;
-}
-
-.nav{
-  position:relative;
-  z-index:1;
-  padding:18px 22px;
-}
-
-.nav a{
-  padding:10px 14px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.22);
-  background:rgba(0,0,0,.35);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-}
-
-.container{
-  position:relative;
-  z-index:1;
-  max-width:1000px;
-  margin:0 auto;
-  padding:10px 20px 80px;
-}
-
-.title{
-  text-align:center;
-  font-size:2.1rem;
-  font-weight:900;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  margin:14px 0 18px;
-}
-
-.glass{
-  max-width:900px;
-  margin:0 auto 22px;
-  padding:18px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.40);
-}
-
-.sub{
-  opacity:.9;
-  line-height:1.55;
-}
-
-.music-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:16px;
-  margin-top:14px;
-}
-
-.music-card{
-  border-radius:14px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(0,0,0,.35);
-  padding:10px;
-}
-
-.music-title{
-  font-weight:900;
-  letter-spacing:.08em;
-  margin-bottom:6px;
-  text-transform:uppercase;
-  font-size:.85rem;
-  opacity:.85;
-}
-
-.player-wrap{position:relative;}
-.player-overlay{
-  position:absolute;
-  inset:0;
-  z-index:5;
-  cursor:pointer;
-}
-
-iframe{border-radius:10px;}
-
-footer{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  opacity:.6;
-  padding:20px;
-}
+body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:0}
+.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:20px}
+.title{text-align:center;font-size:2rem;font-weight:900;letter-spacing:.12em;margin:10px 0}
+.glass{background:rgba(0,0,0,.4);border-radius:16px;padding:18px;margin:16px 0}
+.player-wrap{text-align:center}
+iframe{width:100%;height:420px;border-radius:12px}
+.controls{display:flex;justify-content:space-between;margin-top:12px}
+.btn{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-weight:800}
+.track{text-align:center;font-weight:900;letter-spacing:.08em;margin:10px 0}
 </style>
 </head>
 
 <body>
-
-<div class="nav">
-  <a href="./whatif.html">← Back</a>
-</div>
 
 <div class="container">
 
 <div class="title">Celtic Nations</div>
 
 <div class="glass">
-<div class="sub">
-Dominance is the illusion of power by the removal of competition.<br><br>
-When culture and language are erased, arrogance replaces identity.<br><br>
-We carry anger because we are denied who we are.<br>
-That theft was done for nothing but ego.
+Dominance is the illusion of power by the removal of competition.
+</div>
+
+<div class="glass player-wrap">
+<div class="track" id="trackName"></div>
+
+<iframe id="player" allow="encrypted-media; fullscreen"></iframe>
+
+<div class="controls">
+<div class="btn" onclick="prev()">◀ Prev</div>
+<div class="btn" onclick="next()">Next ▶</div>
 </div>
 </div>
 
-<div class="glass">
-<div class="sub">(Music Portals)</div>
-
-<div class="music-grid">
-
-<!-- PLAYER TEMPLATE -->
-
-<div class="music-card"><div class="music-title">Welsh Hip Hop Space</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-hip-hop-space-welsh%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Irish Shamrock Gaelic</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-shamrock-gaelic-irish-2%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Manx Post Punk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-manx-post-punk-1%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Scots Gaelic Psych Rock</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-scots-gaelic-psche-rock-2%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Cornish Punk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-cornish-punk-rock-1%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Breton Hardcore</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-breton-happy-hardcore-2%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Irish Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-irish-folk-1%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Breton Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-breton-folk-3%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Manx Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-manx-folk-4%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Cornish Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-cornish-folk-2%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Scots Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-folk-scots-4%2F"></iframe></div></div>
-
-<div class="music-card"><div class="music-title">Welsh Folk</div><div class="player-wrap"><div class="player-overlay"></div><iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-folk-wales-2%2F"></iframe></div></div>
-
 </div>
-</div>
-</div>
-
-<footer>Project 67 // Celtic Nations</footer>
 
 <script>
-const mixes=document.querySelectorAll(".mix");
-document.querySelectorAll(".player-overlay").forEach((o,i)=>{
-  o.addEventListener("click",()=>{
-    const active=mixes[i];
-    mixes.forEach(m=>{
-      if(m!==active){
-        const s=m.src;m.src="";m.src=s;
-      }
-    });
-    o.style.display="none";
-  });
+const tracks=[
+["Welsh Hip Hop Space","%2Fmaybesometimes%2F67-hip-hop-space-welsh%2F"],
+["Irish Shamrock Gaelic","%2Fmaybesometimes%2F67-shamrock-gaelic-irish-2%2F"],
+["Manx Post Punk","%2Fsometimesamonkey%2F67-manx-post-punk-1%2F"],
+["Scots Gaelic Psych Rock","%2Fsometimesamonkey%2F67-scots-gaelic-psche-rock-2%2F"],
+["Cornish Punk","%2Fsometimesamonkey%2F67-cornish-punk-rock-1%2F"],
+["Breton Hardcore","%2Fsometimesamonkey%2F67-breton-happy-hardcore-2%2F"],
+["Irish Folk","%2Fsometimesamonkey%2F67-irish-folk-1%2F"],
+["Breton Folk","%2Fsometimesamonkey%2F67-breton-folk-3%2F"],
+["Manx Folk","%2Fsometimesamonkey%2F67-manx-folk-4%2F"],
+["Cornish Folk","%2Fsometimesamonkey%2F67-cornish-folk-2%2F"],
+["Scots Folk","%2Fsometimesamonkey%2F67-folk-scots-4%2F"],
+["Welsh Folk","%2Fsometimesamonkey%2F67-folk-wales-2%2F"]
+];
+
+let i=0;
+const player=document.getElementById("player");
+const name=document.getElementById("trackName");
+
+function load(){
+name.textContent=tracks[i][0];
+player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
+}
+
+function next(){i=(i+1)%tracks.length;load()}
+function prev(){i=(i-1+tracks.length)%tracks.length;load()}
+
+// swipe support
+let x0=null;
+player.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
+player.addEventListener("touchend",e=>{
+if(!x0)return;
+let dx=e.changedTouches[0].clientX-x0;
+if(dx>50)prev();
+if(dx<-50)next();
+x0=null;
 });
+
+load();
 </script>
 
 </body>
