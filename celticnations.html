@@ -1,211 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celtic Nations</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Celtic Nations</title>
 
-  <style>
-    html, body { margin: 0; height: 100%; }
-    body {
-      background: #000 url("./celticvictory2.png") center/cover no-repeat fixed;
-      font-family: system-ui, Arial, sans-serif;
-      color: #fff;
-    }
+<style>
+html, body { margin:0; height:100%; }
 
-    /* Dark overlay */
-    body::before {
-      content:"";
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: 0;
-    }
+body {
+  background:#000 url("./celticvictory2.png") center/cover no-repeat;
+  font-family:system-ui, Arial, sans-serif;
+  color:#fff;
+}
 
-    .nav {
-      position: relative;
-      z-index: 1;
-      padding: 18px 22px;
-      display: flex;
-      justify-content: flex-start;
-      gap: 12px;
-    }
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:0;
+}
 
-    .nav a {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
-      background: rgba(0,0,0,0.35);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .nav a:hover {
-      transform: translateY(-1px);
-      background: rgba(0,0,0,0.50);
-      border-color: rgba(255,255,255,0.35);
-    }
+.nav{
+  position:relative;
+  z-index:1;
+  padding:18px 22px;
+}
 
-    .container{
-      position: relative;
-      z-index: 1;
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 10px 20px 80px;
-    }
+.nav a{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.22);
+  background:rgba(0,0,0,.35);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+}
 
-    .title {
-      text-align: center;
-      font-size: 2.1rem;
-      font-weight: 900;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      margin: 14px 0 18px;
-      text-shadow: 0 10px 22px rgba(0,0,0,0.65);
-    }
+.container{
+  position:relative;
+  z-index:1;
+  max-width:1000px;
+  margin:0 auto;
+  padding:10px 20px 80px;
+}
 
-    .sub {
-      max-width: 760px;
-      margin: 0 auto 22px;
-      text-align: center;
-      opacity: 0.92;
-      line-height: 1.55;
-    }
+.title{
+  text-align:center;
+  font-size:2.1rem;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin:14px 0 18px;
+}
 
-    .glass {
-      max-width: 900px;
-      margin: 0 auto 22px;
-      padding: 18px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.40);
-      box-shadow: 0 10px 34px rgba(0,0,0,0.60);
-      backdrop-filter: blur(6px);
-    }
+.glass{
+  max-width:900px;
+  margin:0 auto 22px;
+  padding:18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.40);
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
+.sub{
+  opacity:.9;
+  line-height:1.55;
+}
 
-    .card {
-      display: block;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.55);
-      text-decoration: none;
-      color: #fff;
-      transition: transform .15s ease, border-color .15s ease, background .15s ease;
-      min-height: 160px;
-    }
+.music-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:16px;
+  margin-top:14px;
+}
 
-    .card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(255,255,255,0.30);
-      background: rgba(0,0,0,0.48);
-    }
+.music-card{
+  border-radius:14px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.35);
+  padding:10px;
+}
 
-    .card-inner {
-      padding: 16px;
-    }
+.music-title{
+  font-weight:900;
+  letter-spacing:.08em;
+  margin-bottom:6px;
+  text-transform:uppercase;
+  font-size:.85rem;
+  opacity:.85;
+}
 
-    .pill {
-      display: inline-block;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.35);
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
+iframe{border-radius:10px;}
 
-    .note {
-      margin-top: 10px;
-      opacity: 0.88;
-      line-height: 1.45;
-      font-size: 0.98rem;
-    }
-
-    /* If your background file isn't found, this makes it obvious */
-    .bg-warning {
-      margin: 14px auto 0;
-      max-width: 900px;
-      font-weight: 800;
-      opacity: 0.9;
-      text-align: center;
-    }
-
-    footer{
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 18px 20px 34px;
-      opacity: 0.65;
-      font-size: 0.92rem;
-    }
-  </style>
+footer{
+  position:relative;
+  z-index:1;
+  text-align:center;
+  opacity:.6;
+  padding:20px;
+}
+</style>
 </head>
 
 <body>
-  <div class="nav">
-    <a href="./whatif.html">← Back</a>
-  </div>
 
-  <div class="container">
-    <div class="title">Celtic Nations</div>
-    <div class="glass">
-  <div class="sub" style="text-align:left; max-width:820px; margin:0 auto;">
-    Dominance is the illusion of power by the removal of competition. But what we see as competition is a flaw in our perception governed by society. When we remove the vast rich tapestry of culture and language to dominate others, we give way to only arrogance and ignorance, leaving only a very dangerous kind of stupidity.<br><br>
-
-    We have anger in our world because we are denied our identity by the will of a few to dominate everyone for the sake of domination. The identity we need to find ourselves so we may speak truly from the heart has been taken. The most painful truth about it is it was for nothing more than ego.
-  </div>
+<div class="nav">
+  <a href="./whatif.html">← Back</a>
 </div>
 
+<div class="container">
 
-    <div class="glass">
-      <div class="sub">
-        (Design space) — we’ll build the portals, audio, visuals, and “what if” expansions here.
-      </div>
+<div class="title">Celtic Nations</div>
 
-      <div class="grid">
-        <!-- Placeholders for now: we’ll wire these to new pages/sections as you expand -->
-        <a class="card" href="./celticnations.html">
-          <div class="card-inner">
-            <span class="pill">Flag</span>
-            <div class="note">Drop in the Celtic Nations flag asset and we’ll make it a clean portal block.</div>
-          </div>
-        </a>
+<div class="glass">
+<div class="sub">
+Dominance is the illusion of power by the removal of competition.  
+When culture and language are erased, arrogance replaces identity.
 
-        <a class="card" href="./celticnations.html">
-          <div class="card-inner">
-            <span class="pill">Music</span>
-            <div class="note">We can add Mixcloud players with one-at-a-time switching (like Viking Disco).</div>
-          </div>
-        </a>
+We carry anger because we are denied who we are.  
+That theft was done for nothing but ego.
+</div>
+</div>
 
-        <a class="card" href="./celticnations.html">
-          <div class="card-inner">
-            <span class="pill">Avatars</span>
-            <div class="note">Alex & Riley variants: Irish glam, Scots psych-garage, Welsh sci-fi hip hop.</div>
-          </div>
-        </a>
-      </div>
-    </div>
+<div class="glass">
 
-    <div class="bg-warning">
-      If the background doesn’t show: confirm the file is exactly named <code>celticvictory2.png</code> in the same folder as this HTML.
-    </div>
-  </div>
+<div class="sub">(Music Portals)</div>
 
-  <footer>Project 67 // What If</footer>
+<div class="music-grid">
+
+<div class="music-card">
+<div class="music-title">Welsh Hip Hop Space</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-hip-hop-space-welsh%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Irish Shamrock Gaelic</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fmaybesometimes%2F67-shamrock-gaelic-irish-2%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Manx Post Punk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-manx-post-punk-1%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Scots Gaelic Psych Rock</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-scots-gaelic-psche-rock-2%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Cornish Punk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-cornish-punk-rock-1%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Breton Hardcore</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-breton-happy-hardcore-2%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Irish Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-irish-folk-1%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Breton Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-breton-folk-3%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Manx Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-manx-folk-4%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Cornish Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-cornish-folk-2%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Scots Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-folk-scots-4%2F"></iframe>
+</div>
+
+<div class="music-card">
+<div class="music-title">Welsh Folk</div>
+<iframe class="mix" width="100%" height="300" src="https://player-widget.mixcloud.com/widget/iframe/?feed=%2Fsometimesamonkey%2F67-folk-wales-2%2F"></iframe>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<footer>Project 67 // Celtic Nations</footer>
+
+<script>
+const mixes = document.querySelectorAll(".mix");
+mixes.forEach(m=>{
+  m.addEventListener("mouseenter",()=>{
+    mixes.forEach(o=>{
+      if(o!==m){
+        const s=o.src;
+        o.src="";
+        o.src=s;
+      }
+    });
+  });
+});
+</script>
+
 </body>
 </html>
