@@ -200,18 +200,26 @@ That theft was done for nothing but ego.
 
 <script>
 const mixes = document.querySelectorAll(".mix");
-mixes.forEach(m=>{
-  m.addEventListener("mouseenter",()=>{
-    mixes.forEach(o=>{
-      if(o!==m){
-        const s=o.src;
-        o.src="";
-        o.src=s;
+
+mixes.forEach(mix => {
+  mix.addEventListener("load", () => {}, true);
+});
+
+document.querySelectorAll(".music-card").forEach(card => {
+  card.addEventListener("click", () => {
+    const current = card.querySelector(".mix");
+
+    mixes.forEach(other => {
+      if (other !== current) {
+        const s = other.src;
+        other.src = "";
+        other.src = s;
       }
     });
   });
 });
 </script>
+
 
 </body>
 </html>
