@@ -7,57 +7,45 @@
 
 <style>
 html,body{margin:0;height:100%}
-body{
-background:#000;
-font-family:system-ui,Arial,sans-serif;
-color:#fff
-}
-body::before{
-content:"";
-position:fixed;
-inset:0;
-background:rgba(0,0,0,.55);
-z-index:0
-}
+body{background:#000;font-family:system-ui,Arial,sans-serif;color:#fff}
+body::before{content:"";position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:0}
 
 .nav{position:relative;z-index:2;padding:18px 22px}
-.nav a{
-padding:10px 14px;border-radius:999px;
-border:1px solid rgba(255,255,255,.22);
-background:rgba(0,0,0,.35);color:#fff;text-decoration:none;font-weight:800
-}
+.nav a{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);background:rgba(0,0,0,.35);color:#fff;text-decoration:none;font-weight:800}
 
 .container{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:10px 20px 80px}
 .title{text-align:center;font-size:2.1rem;font-weight:900;letter-spacing:.14em;margin:14px 0}
 .glass{max-width:900px;margin:0 auto 22px;padding:18px;border-radius:16px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.4)}
 .sub{opacity:.9;line-height:1.55}
 
-/* hero image */
-.hero{
-position:relative;
-max-width:900px;
-margin:0 auto 22px;
-border-radius:18px;
-overflow:hidden;
-}
-.hero img{
-width:100%;
-display:block;
-transition:opacity .5s ease;
-}
+.hero{position:relative;max-width:900px;margin:0 auto 22px;border-radius:18px;overflow:hidden;
+box-shadow:0 0 40px rgba(255,255,255,.18),0 0 80px rgba(255,255,255,.08);
+transition:box-shadow .4s ease}
+.hero img{width:100%;display:block;transition:opacity .5s ease}
 .fade{opacity:0}
 
-/* player */
+.hero.active{
+animation:slowPulse 6s ease-in-out infinite,fastPulse 1.4s ease-in-out infinite
+}
+
+@keyframes slowPulse{
+0%{box-shadow:0 0 30px rgba(255,255,255,.15),0 0 60px rgba(255,255,255,.08)}
+50%{box-shadow:0 0 80px rgba(255,255,255,.35),0 0 140px rgba(255,255,255,.18)}
+100%{box-shadow:0 0 30px rgba(255,255,255,.15),0 0 60px rgba(255,255,255,.08)}
+}
+
+@keyframes fastPulse{
+0%,100%{filter:brightness(1)}
+50%{filter:brightness(1.08)}
+}
+
 .player-wrap{text-align:center}
 iframe{width:100%;height:420px;border-radius:12px}
 
-/* controls */
 .track{text-align:center;font-weight:900;letter-spacing:.08em;margin:10px 0;text-transform:uppercase}
+
 .controls{display:flex;justify-content:space-between;margin-top:10px}
-.btn{
-padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);
-cursor:pointer;font-weight:800;background:rgba(0,0,0,.35)
-}
+.btn{padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-weight:800;background:rgba(0,0,0,.35)}
 
 footer{position:relative;z-index:1;text-align:center;opacity:.6;padding:20px}
 </style>
@@ -65,9 +53,7 @@ footer{position:relative;z-index:1;text-align:center;opacity:.6;padding:20px}
 
 <body>
 
-<div class="nav">
-<a href="./whatif.html">← Back</a>
-</div>
+<div class="nav"><a href="./whatif.html">← Back</a></div>
 
 <div class="container">
 
@@ -98,7 +84,6 @@ That theft was done for nothing but ego.
 </div>
 
 </div>
-
 </div>
 
 <footer>Project 67 // Celtic Nations</footer>
@@ -137,19 +122,22 @@ return"welsh-modern.png";
 }
 
 function load(){
+hero.classList.remove("active");
 hero.classList.add("fade");
+
 setTimeout(()=>{
 name.textContent=tracks[i][0];
 player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
 hero.src=bgFor(tracks[i][0]);
 hero.classList.remove("fade");
+void hero.offsetWidth;
+hero.classList.add("active");
 },300);
 }
 
 function next(){i=(i+1)%tracks.length;load()}
 function prev(){i=(i-1+tracks.length)%tracks.length;load()}
 
-// swipe
 let x0=null;
 hero.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
 hero.addEventListener("touchend",e=>{
