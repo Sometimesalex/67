@@ -73,10 +73,35 @@ body::before{
   text-align:center;
 }
 
+.track{
+  text-align:center;
+  font-weight:900;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+  text-transform:uppercase;
+  opacity:.9;
+}
+
 iframe{
   width:100%;
   height:420px;
   border-radius:12px;
+  transition:opacity .4s ease;
+  opacity:1;
+}
+
+/* fade + glow */
+.fade{opacity:0}
+.glow{
+  box-shadow:0 0 30px rgba(255,255,255,.25),
+             0 0 60px rgba(255,255,255,.15);
+  animation:pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 20px rgba(255,255,255,.15)}
+  50%{box-shadow:0 0 60px rgba(255,255,255,.35)}
+  100%{box-shadow:0 0 20px rgba(255,255,255,.15)}
 }
 
 .controls{
@@ -92,15 +117,6 @@ iframe{
   cursor:pointer;
   font-weight:800;
   background:rgba(0,0,0,.35);
-}
-
-.track{
-  text-align:center;
-  font-weight:900;
-  letter-spacing:.08em;
-  margin-bottom:10px;
-  text-transform:uppercase;
-  opacity:.9;
 }
 
 footer{
@@ -170,21 +186,28 @@ const player=document.getElementById("player");
 const name=document.getElementById("trackName");
 
 function load(){
-  name.textContent=tracks[i][0];
-  player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
+  player.classList.remove("glow");
+  player.classList.add("fade");
+
+  setTimeout(()=>{
+    name.textContent=tracks[i][0];
+    player.src="https://player-widget.mixcloud.com/widget/iframe/?feed="+tracks[i][1];
+    player.classList.remove("fade");
+    player.classList.add("glow");
+  },300);
 }
 
 function next(){ i=(i+1)%tracks.length; load(); }
 function prev(){ i=(i-1+tracks.length)%tracks.length; load(); }
 
-// mobile swipe
+// swipe on mobile
 let x0=null;
 player.addEventListener("touchstart",e=>x0=e.touches[0].clientX);
 player.addEventListener("touchend",e=>{
-  if(!x0) return;
+  if(!x0)return;
   let dx=e.changedTouches[0].clientX-x0;
-  if(dx>50) prev();
-  if(dx<-50) next();
+  if(dx>50)prev();
+  if(dx<-50)next();
   x0=null;
 });
 
