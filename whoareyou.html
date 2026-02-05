@@ -1,1 +1,376 @@
-.gitkeep
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Who Are You — Project 67</title>
+  <meta name="description" content="Who Are You — the system page and the comms link for Project 67." />
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#fff;
+      --muted:rgba(255,255,255,.72);
+      --soft:rgba(255,255,255,.14);
+      --panel:rgba(255,255,255,.05);
+      --accent:#8bd3ff;
+      --accent2:#b7ffcf;
+      --radius:18px;
+      --shadow:0 12px 36px rgba(0,0,0,.55);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(139,211,255,.1), transparent 60%),
+        radial-gradient(900px 600px at 85% 25%, rgba(183,255,207,.08), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 64px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+    .dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 14px;border-radius:999px;
+      border:1px solid var(--soft);
+      background:rgba(255,255,255,.04);
+      color:#fff;font-weight:650;font-size:14px;
+    }
+    .btn:hover{background:rgba(255,255,255,.1);text-decoration:none}
+
+    .hero{
+      border-radius:var(--radius);
+      border:1px solid var(--soft);
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .hero-inner{padding:26px 22px 22px}
+    h1{margin:0 0 8px;font-size:clamp(30px,4.2vw,44px);letter-spacing:.6px}
+    .subtitle{margin:0;color:var(--muted);font-size:15.5px}
+
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:14px}
+    .card{
+      grid-column:span 6;
+      border-radius:var(--radius);
+      background:var(--panel);
+      border:1px solid var(--soft);
+      box-shadow:0 10px 28px rgba(0,0,0,.45);
+      padding:18px;
+      min-height:140px;
+    }
+    .wide{grid-column:span 12}
+    .card h2{margin:0 0 8px;font-size:16px;letter-spacing:.3px}
+    .card p{margin:0;color:rgba(255,255,255,.82);font-size:14.5px}
+    .card ul{margin:10px 0 0 18px;color:rgba(255,255,255,.82);font-size:14.5px}
+    .card li{margin:6px 0}
+
+    .formgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:12px}
+    .field{grid-column:span 6}
+    .field.wide{grid-column:span 12}
+    label{display:block;font-size:13px;color:rgba(255,255,255,.78);margin-bottom:6px}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(0,0,0,.35);
+      color:#fff;
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+    input:focus, textarea:focus, select:focus{border-color:rgba(139,211,255,.55)}
+    .small{font-size:13px;color:rgba(255,255,255,.68);margin-top:8px}
+    .notice{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.04);
+      color:rgba(255,255,255,.80);
+      font-size:14px;
+      display:none;
+    }
+
+    .table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:10px;
+      overflow:hidden;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .table th,.table td{
+      padding:10px 10px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      text-align:left;
+      font-size:14px;
+      color:rgba(255,255,255,.82);
+      vertical-align:top;
+    }
+    .table th{
+      font-size:13px;
+      color:rgba(255,255,255,.70);
+      background:rgba(255,255,255,.04);
+      letter-spacing:.25px;
+    }
+    .badge{
+      display:inline-block;
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      font-size:12px;
+      color:rgba(255,255,255,.78);
+      background:rgba(255,255,255,.03);
+    }
+    .footer{margin-top:18px;color:rgba(255,255,255,.55);font-size:13px;text-align:center}
+    @media(max-width:760px){
+      .card{grid-column:span 12}
+      .field{grid-column:span 12}
+      .btns{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand"><div class="dot"></div><span>PROJECT 67</span></div>
+      <div class="btns">
+        <a class="btn" href="./index.html">Home</a>
+        <a class="btn" href="./whoami.html">Who am I?</a>
+      </div>
+    </div>
+
+    <section class="hero" aria-label="Who Are You">
+      <div class="hero-inner">
+        <h1>WHO ARE YOU</h1>
+        <p class="subtitle">
+          This is the system side of Project 67: a reflective interface for language, meaning, and feedback.
+          It is not a person. It does not claim authority. It receives input, applies structure, and returns a response.
+        </p>
+      </div>
+    </section>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>What this system is</h2>
+        <ul>
+          <li>A structured mirror: human intent → contextual signal → response.</li>
+          <li>Designed for clarity, accountability, and improvement through feedback.</li>
+          <li>Not a belief. Not a being. A tool with rules.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Audio access & resource limits</h2>
+        <p>
+          It is the will of the creator to gift each participant an MP3 of their “Who are you?” track.
+          However, with no external funding, dedicated server storage is currently unavailable.
+          For now, audio is hosted online. You may need to return here to listen, or use the external hosting link to download.
+          Thank you for your patience and understanding.
+        </p>
+      </div>
+
+      <div class="card wide">
+        <h2>Identity & privacy</h2>
+        <p>
+          To confirm real participation while keeping you anonymous, requests use an encrypted identifier after email verification.
+          Your email is used only to verify you exist; it is never displayed publicly.
+          Duplicate requests from the same identity are not permitted.
+        </p>
+        <p class="small">
+          Save your encrypted ID. Until better infrastructure exists, it is the only way to find your track on the list.
+          Avatars and dashboards are planned later, but not possible right now.
+        </p>
+      </div>
+
+      <div class="card wide" id="request">
+        <h2>Comms link — request a track</h2>
+
+        <div class="formgrid">
+          <div class="field">
+            <label for="email">Email (verification only)</label>
+            <input id="email" type="email" placeholder="you@example.com" autocomplete="email" />
+          </div>
+
+          <div class="field">
+            <label for="country">Current country</label>
+            <input id="country" type="text" placeholder="e.g., United Kingdom" />
+          </div>
+
+          <div class="field">
+            <label for="lang">Spoken languages</label>
+            <input id="lang" type="text" placeholder="e.g., EN, FR, AR" />
+          </div>
+
+          <div class="field wide">
+            <label for="heritage">Heritage (optional)</label>
+            <input id="heritage" type="text" placeholder="Free text (optional)" />
+          </div>
+
+          <div class="field wide">
+            <label for="message">Your query / message to the project</label>
+            <textarea id="message" placeholder="Write your message here..."></textarea>
+          </div>
+
+          <div class="field wide" style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <button class="btn" id="submitBtn" type="button">Send request</button>
+            <span class="small">You’ll receive a verification email. After verifying, your encrypted ID will appear below.</span>
+          </div>
+
+          <div class="notice" id="notice"></div>
+        </div>
+      </div>
+
+      <div class="card wide" id="queue">
+        <h2>Request queue</h2>
+        <p class="small">
+          Pending requests appear here by encrypted ID. When a track is ready, a link will appear.
+        </p>
+
+        <table class="table" aria-label="Request queue table">
+          <thead>
+            <tr>
+              <th style="width:140px;">Encrypted ID</th>
+              <th style="width:120px;">Lang</th>
+              <th style="width:120px;">Country</th>
+              <th style="width:110px;">Status</th>
+              <th>Track</th>
+              <th style="width:190px;">Created (UTC)</th>
+            </tr>
+          </thead>
+          <tbody id="rows">
+            <tr><td colspan="6" class="small">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      Project 67 — Who Are You is a living interface: verified existence · anonymous participation · visible queue
+    </div>
+  </div>
+
+  <script>
+    const noticeEl = document.getElementById("notice");
+    const rowsEl = document.getElementById("rows");
+
+    function showNotice(msg, ok=true){
+      noticeEl.style.display = "block";
+      noticeEl.textContent = msg;
+      noticeEl.style.borderColor = ok ? "rgba(183,255,207,.35)" : "rgba(255,160,160,.35)";
+    }
+
+    async function loadQueue(){
+      try{
+        const res = await fetch("/api/requests", { cache: "no-store" });
+        const data = await res.json();
+        if(!data.ok) throw new Error("Failed to load queue");
+
+        const items = data.items || [];
+        if(items.length === 0){
+          rowsEl.innerHTML = `<tr><td colspan="6" class="small">No requests yet.</td></tr>`;
+          return;
+        }
+
+        rowsEl.innerHTML = items.map(it => {
+          const statusBadge = it.status === "ready"
+            ? `<span class="badge">Ready</span>`
+            : `<span class="badge">Pending</span>`;
+
+          const track = it.audio_url
+            ? `<a href="${it.audio_url}" target="_blank" rel="noopener">Listen / Download</a>`
+            : `<span class="small">—</span>`;
+
+          return `
+            <tr>
+              <td><strong>${escapeHtml(it.id)}</strong></td>
+              <td>${escapeHtml(it.lang || "")}</td>
+              <td>${escapeHtml(it.country || "")}</td>
+              <td>${statusBadge}</td>
+              <td>${track}</td>
+              <td class="small">${escapeHtml(it.created_utc || "")}</td>
+            </tr>
+          `;
+        }).join("");
+      }catch(e){
+        rowsEl.innerHTML = `<tr><td colspan="6" class="small">Could not load queue.</td></tr>`;
+      }
+    }
+
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, (c) => ({
+        "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+      }[c]));
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const country = document.getElementById("country").value.trim();
+      const lang = document.getElementById("lang").value.trim();
+      const heritage = document.getElementById("heritage").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if(!email || !email.includes("@")){
+        showNotice("Please enter a valid email.", false);
+        return;
+      }
+      if(!message){
+        showNotice("Please write a message to the project.", false);
+        return;
+      }
+
+      showNotice("Sending request…");
+
+      try{
+        const res = await fetch("/api/request", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, country, lang, heritage, message })
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if(res.ok && data.ok){
+          showNotice("Verification email sent. Please check your inbox. After verifying, your encrypted ID will appear in the queue.");
+          return;
+        }
+
+        // Helpful fallback when SMTP isn’t configured yet:
+        if(data.verify_url_for_testing){
+          showNotice(
+            "Email sending isn’t configured yet. For testing, open this verify link manually:\n" + data.verify_url_for_testing,
+            false
+          );
+          return;
+        }
+
+        showNotice(data.error || "Request failed.", false);
+      }catch(e){
+        showNotice("Request failed. Please try again.", false);
+      }
+    });
+
+    // URL hash hints
+    if(location.hash === "#verified"){
+      showNotice("Verified. Your encrypted ID should now appear in the queue. Save it.");
+    }else if(location.hash === "#already"){
+      showNotice("This email already has a request. Please use your existing encrypted ID from the queue.", false);
+    }
+
+    loadQueue();
+    setInterval(loadQueue, 15000);
+  </script>
+</body>
+</html>
