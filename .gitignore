@@ -1,0 +1,17 @@
+# Virtual environments
+67venv/
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Local database
+server/requests.db
+
+# Environment / secrets
+.env
+
+# OS junk
+.DS_Store
