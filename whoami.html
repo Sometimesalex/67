@@ -1,1 +1,289 @@
-.gitkeep
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Who Am I — Project 67</title>
+  <meta name="description" content="Who Am I — a short identity page for Project 67." />
+
+  <style>
+    :root{
+      --bg: #000;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.09);
+      --text: #fff;
+      --muted: rgba(255,255,255,0.72);
+      --soft: rgba(255,255,255,0.14);
+      --accent: #8bd3ff;
+      --accent2: #b7ffcf;
+      --shadow: 0 12px 36px rgba(0,0,0,0.55);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 20% 10%, rgba(139,211,255,0.10), transparent 60%),
+                  radial-gradient(900px 600px at 85% 25%, rgba(183,255,207,0.08), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 64px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      user-select:none;
+      opacity: 0.95;
+    }
+    .dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 18px rgba(139,211,255,0.25);
+    }
+    .brand span{
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .btns{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--soft);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn:hover{
+      border-color: rgba(255,255,255,0.26);
+      background: rgba(255,255,255,0.06);
+      text-decoration:none;
+    }
+
+    .hero{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid var(--soft);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .hero-inner{
+      padding: 26px 22px 22px;
+    }
+
+    h1{
+      margin: 0 0 6px;
+      font-size: clamp(30px, 4.2vw, 44px);
+      letter-spacing: 0.6px;
+    }
+    .subtitle{
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 15.5px;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .pill{
+      font-size: 13px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--soft);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.86);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .card{
+      grid-column: span 6;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--soft);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+      padding: 18px;
+      min-height: 140px;
+    }
+    .card h2{
+      margin: 0 0 8px;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+    }
+    .card p{
+      margin: 0;
+      color: rgba(255,255,255,0.80);
+      font-size: 14.5px;
+    }
+
+    .card ul{
+      margin: 10px 0 0 18px;
+      padding: 0;
+      color: rgba(255,255,255,0.82);
+      font-size: 14.5px;
+    }
+    .card li{ margin: 6px 0; }
+
+    .wide{ grid-column: span 12; }
+
+    .footer{
+      margin-top: 18px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    @media (max-width: 760px){
+      .card{ grid-column: span 12; }
+      .btns{ justify-content: flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="dot"></div>
+        <span>PROJECT 67</span>
+      </div>
+
+      <div class="btns">
+        <a class="btn" href="./index.html" aria-label="Back to home">← Home</a>
+        <!-- OPTIONAL: point these at real pages/files if you have them -->
+        <a class="btn" href="./manifesto.html">Manifesto</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero" aria-label="Who Am I">
+      <div class="hero-inner">
+        <h1>WHO AM I</h1>
+        <p class="subtitle">
+          A short, human-readable page — not a résumé. The goal is clarity: what I’m building, why it matters,
+          and how to reach me.
+        </p>
+
+        <!-- EDIT THIS BLOCK FIRST -->
+        <div class="pillrow" aria-label="Key tags">
+          <div class="pill">Builder</div>
+          <div class="pill">Systems thinker</div>
+          <div class="pill">Language + Meaning</div>
+          <div class="pill">Truth-seeking</div>
+          <div class="pill">Energy + Practical tech</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid" role="region" aria-label="Identity blocks">
+
+      <div class="card wide">
+        <h2>In one paragraph</h2>
+        <p>
+          I build tools that turn confusion into structure. That includes language systems (meaning, translation,
+          scripture analysis), and practical engineering experiments (energy, efficiency, prototypes). I care about
+          integrity: show the evidence, reveal the pattern, improve the method.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>What I’m doing right now</h2>
+        <ul>
+          <li>Building <strong>“y”</strong>: a semantic mirror for studying texts using local lexical resources.</li>
+          <li>Exploring how cultures encode meaning through structure, density, and organization of writing.</li>
+          <li>Prototyping clean workflows: repeatable scripts, readable corpora, measurable results.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What I believe</h2>
+        <ul>
+          <li>Truth improves when it can be tested.</li>
+          <li>Words should speak for themselves — we don’t need to “judge” them to learn.</li>
+          <li>Interpretation is powerful; it should be transparent and accountable.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What I can offer</h2>
+        <ul>
+          <li>Rapid prototyping (scripts → datasets → search → UI)</li>
+          <li>Semantic/lexical reasoning (WordNet-style structures, glosses, relations)</li>
+          <li>Clear communication: turning messy ideas into usable artifacts</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>What I’m looking for</h2>
+        <ul>
+          <li>Collaborators who care about truth, language, and systems.</li>
+          <li>Support for building public-facing tools (UI, hosting, design, governance).</li>
+          <li>People who can challenge the work without ego.</li>
+        </ul>
+      </div>
+
+      <div class="card wide" id="contact">
+        <h2>Contact</h2>
+        <p>
+          Add your preferred contact here (email, social, GitHub). Example:
+          <br />
+          <strong>GitHub:</strong> <a href="https://github.com/" target="_blank" rel="noopener">your-handle</a>
+          &nbsp;•&nbsp;
+          <strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a>
+        </p>
+        <p style="margin-top:10px; color: rgba(255,255,255,0.68); font-size: 13.5px;">
+          Tip: if you don’t want to publish email, use a contact form or a throwaway alias.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © Project 67 — “Who Am I” is a living page. Update it as the work evolves.
+    </div>
+  </div>
+</body>
+</html>
